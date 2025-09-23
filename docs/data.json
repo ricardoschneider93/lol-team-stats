@@ -1,0 +1,253 @@
+{
+  "team_name": "The LoungeEsports",
+  "players": {
+    "Figure09#1893": {
+      "riot_id": "Figure09#1893",
+      "summoner_name": "Figure09#1893",
+      "tier": "Emerald",
+      "rank": "Emerald 4",
+      "lp": 10,
+      "wins": 136,
+      "losses": 139,
+      "total_games": 275,
+      "win_rate": 49,
+      "main_champions": [
+        {
+          "name": "Urgot",
+          "wins": 31,
+          "losses": 32,
+          "games": 63,
+          "win_rate": 49
+        },
+        {
+          "name": "Gwen",
+          "wins": 29,
+          "losses": 27,
+          "games": 56,
+          "win_rate": 52
+        },
+        {
+          "name": "Ornn",
+          "wins": 19,
+          "losses": 13,
+          "games": 32,
+          "win_rate": 59
+        },
+        {
+          "name": "Sion",
+          "wins": 13,
+          "losses": 16,
+          "games": 29,
+          "win_rate": 45
+        },
+        {
+          "name": "Gnar",
+          "wins": 14,
+          "losses": 13,
+          "games": 27,
+          "win_rate": 52
+        }
+      ],
+      "last_updated": "2025-09-23 15:23:04"
+    },
+    "cl1ck9r#EUWES": {
+      "riot_id": "cl1ck9r#EUWES",
+      "summoner_name": "cl1ck9r#EUWES",
+      "tier": "Master",
+      "rank": "Master",
+      "lp": 47,
+      "wins": 59,
+      "losses": 43,
+      "total_games": 102,
+      "win_rate": 58,
+      "main_champions": [
+        {
+          "name": "Viego",
+          "wins": 24,
+          "losses": 14,
+          "games": 38,
+          "win_rate": 63
+        },
+        {
+          "name": "Xerath",
+          "wins": 17,
+          "losses": 15,
+          "games": 32,
+          "win_rate": 53
+        },
+        {
+          "name": "Jarvan IV",
+          "wins": 18,
+          "losses": 11,
+          "games": 29,
+          "win_rate": 62
+        },
+        {
+          "name": "Nocturne",
+          "wins": 18,
+          "losses": 7,
+          "games": 25,
+          "win_rate": 72
+        },
+        {
+          "name": "Evelynn",
+          "wins": 9,
+          "losses": 7,
+          "games": 16,
+          "win_rate": 56
+        }
+      ],
+      "last_updated": "2025-09-23 15:23:05"
+    },
+    "FXN Artelî#EUW": {
+      "riot_id": "FXN Artelî#EUW",
+      "summoner_name": "FXN Artelî#EUW",
+      "tier": "Master",
+      "rank": "Master",
+      "lp": 45,
+      "wins": 50,
+      "losses": 36,
+      "total_games": 86,
+      "win_rate": 58,
+      "main_champions": [
+        {
+          "name": "Syndra",
+          "wins": 38,
+          "losses": 18,
+          "games": 56,
+          "win_rate": 68
+        },
+        {
+          "name": "Karma",
+          "wins": 4,
+          "losses": 4,
+          "games": 8,
+          "win_rate": 50
+        },
+        {
+          "name": "Akali",
+          "wins": 4,
+          "losses": 4,
+          "games": 8,
+          "win_rate": 50
+        },
+        {
+          "name": "Lissandra",
+          "wins": 5,
+          "losses": 2,
+          "games": 7,
+          "win_rate": 71
+        },
+        {
+          "name": "Xerath",
+          "wins": 3,
+          "losses": 4,
+          "games": 7,
+          "win_rate": 43
+        }
+      ],
+      "last_updated": "2025-09-23 15:23:07"
+    },
+    "ActionBear#EUW": {
+      "riot_id": "ActionBear#EUW",
+      "summoner_name": "ActionBear#EUW",
+      "tier": "Emerald",
+      "rank": "Emerald 1",
+      "lp": 54,
+      "wins": 85,
+      "losses": 90,
+      "total_games": 175,
+      "win_rate": 49,
+      "main_champions": [
+        {
+          "name": "Jinx",
+          "wins": 36,
+          "losses": 31,
+          "games": 67,
+          "win_rate": 54
+        },
+        {
+          "name": "Kai'Sa",
+          "wins": 16,
+          "losses": 17,
+          "games": 33,
+          "win_rate": 48
+        },
+        {
+          "name": "Ziggs",
+          "wins": 15,
+          "losses": 11,
+          "games": 26,
+          "win_rate": 58
+        },
+        {
+          "name": "Jhin",
+          "wins": 9,
+          "losses": 9,
+          "games": 18,
+          "win_rate": 50
+        },
+        {
+          "name": "Vayne",
+          "wins": 5,
+          "losses": 7,
+          "games": 12,
+          "win_rate": 42
+        }
+      ],
+      "last_updated": "2025-09-23 15:23:08"
+    },
+    "zeLLay#ff15": {
+      "riot_id": "zeLLay#ff15",
+      "summoner_name": "zeLLay#ff15",
+      "tier": "Diamond",
+      "rank": "Diamond 1",
+      "lp": 56,
+      "wins": 430,
+      "losses": 400,
+      "total_games": 830,
+      "win_rate": 52,
+      "main_champions": [
+        {
+          "name": "Braum",
+          "wins": 43,
+          "losses": 35,
+          "games": 78,
+          "win_rate": 55
+        },
+        {
+          "name": "Bard",
+          "wins": 47,
+          "losses": 27,
+          "games": 74,
+          "win_rate": 64
+        },
+        {
+          "name": "Lulu",
+          "wins": 36,
+          "losses": 31,
+          "games": 67,
+          "win_rate": 54
+        },
+        {
+          "name": "Alistar",
+          "wins": 29,
+          "losses": 33,
+          "games": 62,
+          "win_rate": 47
+        },
+        {
+          "name": "Rell",
+          "wins": 29,
+          "losses": 31,
+          "games": 60,
+          "win_rate": 48
+        }
+      ],
+      "last_updated": "2025-09-23 15:23:11"
+    }
+  },
+  "last_updated": "2025-09-23 15:23:03",
+  "total_players": 5,
+  "success_count": 5
+}
