@@ -56,8 +56,14 @@ def validate_config():
 
 def main():
     """Vollautomatischer Prozess - alles in einem!"""
+    # Sicherstellen, dass wir im richtigen Verzeichnis sind
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(script_dir)
+    
     setup_logging()
     logger = logging.getLogger(__name__)
+    
+    logger.info(f"📁 Working Directory: {os.getcwd()}")
     
     print("""
     ╔══════════════════════════════════════╗

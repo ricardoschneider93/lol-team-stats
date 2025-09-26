@@ -44,8 +44,8 @@ class GitHubManager:
             # Branch auf main setzen
             subprocess.run(['git', 'branch', '-M', 'main'], check=True, capture_output=True)
             
-            # Remote hinzufügen/aktualisieren
-            repo_url = f"https://{self.username}:{self.token}@github.com/{self.username}/{self.repo_name}.git"
+            # Remote hinzufügen/aktualisieren mit korrektem Token-Format
+            repo_url = f"https://{self.token}@github.com/{self.username}/{self.repo_name}.git"
             
             try:
                 subprocess.run(['git', 'remote', 'remove', 'origin'], capture_output=True)
@@ -78,9 +78,17 @@ class GitHubManager:
                 # Keine Änderungen zu committen
                 self.logger.info("ℹ️  Keine neuen Änderungen zu committen")
             
-            # Push zu GitHub
-            subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True, capture_output=True)
-            self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
+            # Push zu GitHub (nur wenn es Änderungen gab oder Force)
+            if has_changes:
+                subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True, capture_output=True)
+                self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
+            else:
+                # Prüfe ob Remote aktuell ist
+                try:
+                    subprocess.run(['git', 'push', 'origin', 'main'], check=True, capture_output=True)
+                    self.logger.info("✅ Repository ist aktuell")
+                except subprocess.CalledProcessError:
+                    self.logger.info("ℹ️  Repository bereits aktuell")
             
             return True
             
