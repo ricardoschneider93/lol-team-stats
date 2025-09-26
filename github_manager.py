@@ -80,20 +80,63 @@ class GitHubManager:
             
             # Push zu GitHub (nur wenn es Änderungen gab oder Force)
             if has_changes:
-                subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True, capture_output=True)
-                self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
+                self.logger.info("🚀 Pushe Änderungen zu GitHub...")
+                result = subprocess.run(['git', 'push', '-u', 'origin', 'main'], 
+                                      capture_output=True, text=True)
+                if result.returncode == 0:
+                    self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
+                else:
+                    self.logger.error(f"❌ Push fehlgeschlagen - Return Code: {result.returncode}")
+                    if result.stdout:
+                        self.logger.error(f"📤 STDOUT: {result.stdout}")
+                    if result.stderr:
+                        self.logger.error(f"📥 STDERR: {result.stderr}")
+                    raise subprocess.CalledProcessError(result.returncode, 'git push', result.stdout, result.stderr)
             else:
                 # Prüfe ob Remote aktuell ist
-                try:
-                    subprocess.run(['git', 'push', 'origin', 'main'], check=True, capture_output=True)
+                self.logger.info("🔄 Prüfe ob Repository aktuell ist...")
+                result = subprocess.run(['git', 'push', 'origin', 'main'], 
+                                      capture_output=True, text=True)
+                if result.returncode == 0:
                     self.logger.info("✅ Repository ist aktuell")
-                except subprocess.CalledProcessError:
-                    self.logger.info("ℹ️  Repository bereits aktuell")
+                else:
+                    if "up-to-date" in result.stderr or "up to date" in result.stderr:
+                        self.logger.info("ℹ️  Repository bereits aktuell")
+                    else:
+                        self.logger.error(f"❌ Push Check fehlgeschlagen - Return Code: {result.returncode}")
+                        if result.stdout:
+                            self.logger.error(f"📤 STDOUT: {result.stdout}")
+                        if result.stderr:
+                            self.logger.error(f"📥 STDERR: {result.stderr}")
+                        raise subprocess.CalledProcessError(result.returncode, 'git push check', result.stdout, result.stderr)
             
             return True
             
         except subprocess.CalledProcessError as e:
             self.logger.error(f"❌ GitHub Push fehlgeschlagen: {e}")
+            self.logger.error(f"🔍 Exit Code: {e.returncode}")
+            if e.stdout:
+                self.logger.error(f"📤 STDOUT: {e.stdout.decode('utf-8').strip()}")
+            if e.stderr:
+                self.logger.error(f"📥 STDERR: {e.stderr.decode('utf-8').strip()}")
+            
+            # Zusätzliche Git-Diagnose
+            try:
+                # Git Remote Status
+                remote_result = subprocess.run(['git', 'remote', '-v'], capture_output=True, text=True)
+                self.logger.error(f"🔗 Git Remote: {remote_result.stdout.strip()}")
+                
+                # Git Status
+                status_result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+                self.logger.error(f"📊 Git Status: {status_result.stdout.strip() if status_result.stdout.strip() else 'Clean'}")
+                
+                # Aktueller Branch
+                branch_result = subprocess.run(['git', 'branch', '--show-current'], capture_output=True, text=True)
+                self.logger.error(f"🌿 Current Branch: {branch_result.stdout.strip()}")
+                
+            except Exception as diag_e:
+                self.logger.error(f"🔧 Git Diagnose fehlgeschlagen: {diag_e}")
+            
             return False
     
     def enable_github_pages(self) -> Tuple[bool, str]:
