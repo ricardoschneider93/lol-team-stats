@@ -121,27 +121,34 @@ class GitHubManager:
         except subprocess.CalledProcessError as e:
             self.logger.error(f"❌ GitHub Push fehlgeschlagen: {e}")
             self.logger.error(f"🔍 Exit Code: {e.returncode}")
-            if e.stdout:
-                self.logger.error(f"📤 STDOUT: {e.stdout.decode('utf-8').strip()}")
-            if e.stderr:
-                self.logger.error(f"📥 STDERR: {e.stderr.decode('utf-8').strip()}")
             
-            # Zusätzliche Git-Diagnose
-            try:
-                # Git Remote Status
-                remote_result = subprocess.run(['git', 'remote', '-v'], capture_output=True, text=True)
-                self.logger.error(f"🔗 Git Remote: {remote_result.stdout.strip()}")
-                
-                # Git Status
-                status_result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
-                self.logger.error(f"📊 Git Status: {status_result.stdout.strip() if status_result.stdout.strip() else 'Clean'}")
-                
-                # Aktueller Branch
-                branch_result = subprocess.run(['git', 'branch', '--show-current'], capture_output=True, text=True)
-                self.logger.error(f"🌿 Current Branch: {branch_result.stdout.strip()}")
-                
-            except Exception as diag_e:
-                self.logger.error(f"🔧 Git Diagnose fehlgeschlagen: {diag_e}")
+            # Behandle stdout/stderr sicher (können String oder bytes sein)
+            if e.stdout:
+                stdout = e.stdout if isinstance(e.stdout, str) else e.stdout.decode('utf-8')
+                self.logger.error(f"📤 STDOUT: {stdout.strip()}")
+            if e.stderr:
+                stderr = e.stderr if isinstance(e.stderr, str) else e.stderr.decode('utf-8')
+                self.logger.error(f"📥 STDERR: {stderr.strip()}")
+            
+            # Spezielle Behandlung für Timeout
+            if e.returncode == 124:
+                self.logger.error("🕐 Git Push Timeout - Authentifizierung wahrscheinlich fehlgeschlagen")
+                self.logger.info("💡 Lösung: GitHub Token in config.py überprüfen oder Git-Credentials konfigurieren")
+                return False
+            
+            # Zusätzliche Git-Diagnose nur bei anderen Fehlern
+            if e.returncode != 124:
+                try:
+                    # Git Remote Status
+                    remote_result = subprocess.run(['git', 'remote', '-v'], capture_output=True, text=True)
+                    self.logger.error(f"🔗 Git Remote: {remote_result.stdout.strip()}")
+                    
+                    # Git Status
+                    status_result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+                    self.logger.error(f"📊 Git Status: {status_result.stdout.strip() if status_result.stdout.strip() else 'Clean'}")
+                    
+                except Exception as diag_e:
+                    self.logger.error(f"🔧 Git Diagnose fehlgeschlagen: {diag_e}")
             
             return False
     
