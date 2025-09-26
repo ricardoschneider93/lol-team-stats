@@ -17,5 +17,5 @@ TEAM_CONFIG = {
 GITHUB_CONFIG = {
     "username": "ricardoschneider93",           # Dein GitHub Username
     "repo_name": "lol-team-stats",              # Repository Name
-    "token": "",                                # Token wird als Parameter übergeben
+    "token": "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",                                # Token wird als Parameter übergeben
 }
