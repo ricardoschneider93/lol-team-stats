@@ -91,7 +91,7 @@ class GitHubManager:
                         self.logger.error(f"📤 STDOUT: {result.stdout}")
                     if result.stderr:
                         self.logger.error(f"📥 STDERR: {result.stderr}")
-                    raise subprocess.CalledProcessError(result.returncode, 'git push', result.stdout, result.stderr)
+                    raise subprocess.CalledProcessError(result.returncode, ['git', 'push'], result.stdout, result.stderr)
             else:
                 # Prüfe ob Remote aktuell ist
                 self.logger.info("🔄 Prüfe ob Repository aktuell ist...")
