@@ -68,10 +68,12 @@ class GitHubManager:
             subprocess.run(['git', 'add', '.'], check=True, capture_output=True)
             
             # Commit (nur wenn es Änderungen gibt)
+            has_changes = False
             try:
                 result = subprocess.run(['git', 'commit', '-m', 'Update LoL Team Stats'], 
                                       check=True, capture_output=True, text=True)
                 self.logger.info("🔧 Änderungen committed")
+                has_changes = True
             except subprocess.CalledProcessError:
                 # Keine Änderungen zu committen
                 self.logger.info("ℹ️  Keine neuen Änderungen zu committen")

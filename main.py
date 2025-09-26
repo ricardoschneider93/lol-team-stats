@@ -104,24 +104,7 @@ def main():
         success, website_url = github_manager.full_deployment()
         
         if success:
-            print(f"""
-    
-🎉 ERFOLGREICH DEPLOYED!
-═══════════════════════
-
-✅ Repository: https://github.com/{username}/{repo_name}
-✅ Live-Website: {website_url}
-
-🔄 NÄCHSTE SCHRITTE:
-    1. Falls GitHub Pages noch nicht aktiviert: 
-       → Gehe zu: https://github.com/{username}/{repo_name}/settings/pages
-       → Source: "main" branch, "/docs" folder
-       
-    2. Für Updates: Einfach 'python main.py' erneut ausführen!
-
-💡 TEAM-SHARING:
-    Teile diese URL mit deinem Team: {website_url}
-    """)
+            print("Teile diese URL mit deinem Team: {website_url}")      
         else:
             logger.error("❌ GitHub Deployment fehlgeschlagen!")
             return False
