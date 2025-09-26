@@ -72,5 +72,10 @@ Thumbs.db
 # Logs
 *.log
 
+# GitHub Token (Security - niemals versionieren!)
+github_token.txt
+.env
+*.env
+
 # Keep docs folder (GitHub Pages output)
 # docs/ should be committed for GitHub Pages

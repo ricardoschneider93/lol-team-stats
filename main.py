@@ -42,11 +42,7 @@ def validate_config():
         logger.error("➡️  Füge deinen Username in GITHUB_CONFIG hinzu")
         return False
     
-    if not token:
-        logger.error("❌ GitHub Token fehlt in config.py!")
-        logger.error("➡️  Erstelle einen Token und füge ihn in GITHUB_CONFIG hinzu")
-        logger.error("     https://github.com/settings/tokens")
-        return False
+    # Token wird jetzt sicher aus github_token.txt geladen, nicht aus config.py
     
     if not repo_name:
         logger.error("❌ Repository Name fehlt in config.py!")
@@ -94,8 +90,62 @@ def main():
         
         # 4. Automatischer GitHub Deployment
         username = GITHUB_CONFIG['username']
-        token = GITHUB_CONFIG['token']
         repo_name = GITHUB_CONFIG['repo_name']
+        
+        # GitHub Token sicher laden (nicht aus versioniertem Code!)
+        token_file = "github_token.txt"
+        token = ""
+        
+        if os.path.exists(token_file):
+            try:
+                with open(token_file, 'r', encoding='utf-8') as f:
+                    token = f.read().strip()
+                if token and token != "HIER_IHREN_TOKEN_EINTRAGEN":
+                    logger.info("🔑 GitHub Token sicher geladen")
+                else:
+                    logger.error("❌ Token in github_token.txt nicht konfiguriert!")
+                    print(f"""
+⚠️  GITHUB TOKEN SETUP ERFORDERLICH:
+
+🔑 Erstelle neuen Token:
+    1. https://github.com/settings/tokens
+    2. "Generate new token (classic)"
+    3. Scopes: ✓ repo ✓ workflow
+    4. Token kopieren
+
+💾 Token sicher speichern:
+    Öffne: github_token.txt
+    Inhalt: ghp_xxxxxxxxxxxxxxxxxxxx (nur das Token!)
+    
+💡 Warum so? GitHub deaktiviert Token die im Code stehen automatisch!
+    """)
+                    return False
+            except Exception as e:
+                logger.error(f"❌ Fehler beim Laden des Tokens: {e}")
+                return False
+        else:
+            # Fallback: Token aus config.py (unsicher!)
+            token = GITHUB_CONFIG.get('token', '').strip()
+            if token and token != "HIER_NEUEN_TOKEN_EINTRAGEN":
+                logger.warning("⚠️  Token aus config.py geladen - unsicher! Verwende github_token.txt")
+            else:
+                logger.error("❌ Kein GitHub Token gefunden!")
+                print(f"""
+⚠️  GITHUB TOKEN SETUP ERFORDERLICH:
+
+🔑 Erstelle neuen Token:
+    1. https://github.com/settings/tokens
+    2. "Generate new token (classic)"  
+    3. Scopes: ✓ repo ✓ workflow
+    4. Token kopieren
+
+💾 Token sicher speichern:
+    Erstelle Datei: github_token.txt
+    Inhalt: ghp_xxxxxxxxxxxxxxxxxxxx (nur das Token!)
+    
+💡 Warum so? GitHub deaktiviert Token die im Code stehen automatisch!
+                """)
+                return False
         
         logger.info("🚀 Starte automatischen GitHub Deployment...")
         github_manager = GitHubManager(username, token, repo_name)
