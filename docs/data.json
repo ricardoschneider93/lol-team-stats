@@ -6,7 +6,7 @@
       "summoner_name": "Figure09#1893",
       "tier": "Emerald",
       "rank": "Emerald 4",
-      "lp": 10,
+      "lp": 0,
       "wins": 136,
       "losses": 139,
       "total_games": 275,
@@ -48,7 +48,7 @@
           "win_rate": 52
         }
       ],
-      "last_updated": "2025-09-23 15:23:04"
+      "last_updated": "2025-09-26 08:39:37"
     },
     "cl1ck9r#EUWES": {
       "riot_id": "cl1ck9r#EUWES",
@@ -97,7 +97,7 @@
           "win_rate": 56
         }
       ],
-      "last_updated": "2025-09-23 15:23:05"
+      "last_updated": "2025-09-26 08:39:39"
     },
     "FXN Artelî#EUW": {
       "riot_id": "FXN Artelî#EUW",
@@ -146,14 +146,14 @@
           "win_rate": 43
         }
       ],
-      "last_updated": "2025-09-23 15:23:07"
+      "last_updated": "2025-09-26 08:39:40"
     },
     "ActionBear#EUW": {
       "riot_id": "ActionBear#EUW",
       "summoner_name": "ActionBear#EUW",
       "tier": "Emerald",
       "rank": "Emerald 1",
-      "lp": 54,
+      "lp": 33,
       "wins": 85,
       "losses": 90,
       "total_games": 175,
@@ -195,18 +195,18 @@
           "win_rate": 42
         }
       ],
-      "last_updated": "2025-09-23 15:23:08"
+      "last_updated": "2025-09-26 08:39:42"
     },
     "zeLLay#ff15": {
       "riot_id": "zeLLay#ff15",
       "summoner_name": "zeLLay#ff15",
       "tier": "Diamond",
       "rank": "Diamond 1",
-      "lp": 56,
-      "wins": 430,
-      "losses": 400,
-      "total_games": 830,
-      "win_rate": 52,
+      "lp": 16,
+      "wins": 432,
+      "losses": 409,
+      "total_games": 841,
+      "win_rate": 51,
       "main_champions": [
         {
           "name": "Braum",
@@ -232,22 +232,22 @@
         {
           "name": "Alistar",
           "wins": 29,
-          "losses": 33,
-          "games": 62,
-          "win_rate": 47
+          "losses": 34,
+          "games": 63,
+          "win_rate": 46
         },
         {
           "name": "Rell",
-          "wins": 29,
+          "wins": 30,
           "losses": 31,
-          "games": 60,
-          "win_rate": 48
+          "games": 61,
+          "win_rate": 49
         }
       ],
-      "last_updated": "2025-09-23 15:23:11"
+      "last_updated": "2025-09-26 08:39:44"
     }
   },
-  "last_updated": "2025-09-23 15:23:03",
+  "last_updated": "2025-09-26 08:39:36",
   "total_players": 5,
   "success_count": 5
 }
