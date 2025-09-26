@@ -81,17 +81,23 @@ class GitHubManager:
             # Push zu GitHub (nur wenn es Änderungen gab oder Force)
             if has_changes:
                 self.logger.info("🚀 Pushe Änderungen zu GitHub...")
-                result = subprocess.run(['git', 'push', '-u', 'origin', 'main'], 
-                                      capture_output=True, text=True)
-                if result.returncode == 0:
-                    self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
-                else:
-                    self.logger.error(f"❌ Push fehlgeschlagen - Return Code: {result.returncode}")
-                    if result.stdout:
-                        self.logger.error(f"📤 STDOUT: {result.stdout}")
-                    if result.stderr:
-                        self.logger.error(f"📥 STDERR: {result.stderr}")
-                    raise subprocess.CalledProcessError(result.returncode, ['git', 'push'], result.stdout, result.stderr)
+                try:
+                    # Git Push mit Timeout um Hängen zu vermeiden
+                    result = subprocess.run(['git', 'push', '-u', 'origin', 'main'], 
+                                          capture_output=True, text=True, timeout=30)
+                    if result.returncode == 0:
+                        self.logger.info("✅ Code erfolgreich zu GitHub gepusht!")
+                    else:
+                        self.logger.error(f"❌ Push fehlgeschlagen - Return Code: {result.returncode}")
+                        if result.stdout:
+                            self.logger.error(f"📤 STDOUT: {result.stdout}")
+                        if result.stderr:
+                            self.logger.error(f"📥 STDERR: {result.stderr}")
+                        raise subprocess.CalledProcessError(result.returncode, ['git', 'push'], result.stdout, result.stderr)
+                except subprocess.TimeoutExpired:
+                    self.logger.error("❌ Git Push Timeout - wahrscheinlich Authentifizierung-Problem")
+                    self.logger.info("💡 Dashboard wurde lokal erfolgreich generiert!")
+                    raise subprocess.CalledProcessError(124, ['git', 'push'], "", "Timeout")
             else:
                 # Prüfe ob Remote aktuell ist
                 self.logger.info("🔄 Prüfe ob Repository aktuell ist...")
