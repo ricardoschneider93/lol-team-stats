@@ -65,13 +65,6 @@ def main():
     
     logger.info(f"📁 Working Directory: {os.getcwd()}")
     
-    print("""
-    ╔══════════════════════════════════════╗
-    ║   LoL Team Stats - VOLLAUTOMATISCH   ║
-    ║        🤖 Alles in einem Skript      ║
-    ╚══════════════════════════════════════╝
-    """)
-    
     # 1. Konfiguration validieren
     if not validate_config():
         logger.error("🔧 Bitte korrigiere config.py und führe das Skript erneut aus")
