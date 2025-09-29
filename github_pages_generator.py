@@ -251,8 +251,8 @@ class GitHubPagesGenerator:
             <div class="player-card modern-player {tier_class}">
                 <div class="player-header">
                     <div class="player-identity">
-                        <h3 class="player-name">{riot_id.split('#')[0]}</h3>
-                        <span class="player-tag">#{riot_id.split('#')[1] if '#' in riot_id else ''}</span>
+                        <h3 class="player-name">{riot_id.split('#')[0] if '#' in riot_id else riot_id}</h3>
+                        <span class="player-tag">#{riot_id.split('#')[1] if '#' in riot_id and len(riot_id.split('#')) > 1 else ''}</span>
                         <span class="player-role">{primary_role}</span>
                     </div>
                     <div class="player-rank-info">
@@ -460,8 +460,8 @@ class GitHubPagesGenerator:
                         <span class="kpi-title">Highest Rank</span>
                         <span class="kpi-icon">👑</span>
                     </div>
-                    <div class="kpi-value">{highest_rank.split()[0] if highest_rank != 'Unranked' else 'Unranked'}</div>
-                    <div class="kpi-subtitle">{highest_player[0].split('#')[0]}</div>
+                    <div class="kpi-value">{highest_rank.split()[0] if highest_rank != 'Unranked' and len(highest_rank.split()) > 0 else 'Unranked'}</div>
+                    <div class="kpi-subtitle">{highest_player[0].split('#')[0] if '#' in highest_player[0] else highest_player[0]}</div>
                 </div>
             </div>
             
@@ -527,7 +527,7 @@ class GitHubPagesGenerator:
     
     def _generate_player_stats_json(self, players) -> str:
         """Generiert JSON-Daten für Charts"""
-        player_names = [p[0].split('#')[0] for p in players[:5]]
+        player_names = [p[0].split('#')[0] if '#' in p[0] else p[0] for p in players[:5]]
         win_rates = [p[1].get('win_rate', 0) for p in players[:5]]
         kda_ratios = [p[1].get('kda_ratio', 0) for p in players[:5]]
         

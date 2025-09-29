@@ -6,6 +6,7 @@ import json
 import logging
 import re
 import time
+import urllib3
 from urllib.parse import quote
 from typing import Dict, List, Optional
 from bs4 import BeautifulSoup
@@ -17,12 +18,20 @@ class LoLScraper:
         self.logger = logging.getLogger(__name__)
         self.session = requests.Session()
         
+        # SSL-Konfiguration für Scraping
+        self.session.verify = False  # SSL-Verifikation deaktivieren für Scraping
+        
+        # Warnungen für unsichere Requests unterdrücken
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        
         # Standard Browser Headers
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'de-DE,de;q=0.9,en;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, br',
             'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
         })
         
         # Region Mapping: Riot API -> op.gg
@@ -49,9 +58,29 @@ class LoLScraper:
             
             self.logger.info(f"🔍 Scraping {riot_id}...")
             
-            response = self.session.get(url, timeout=30)
+            # Request mit Retry-Logik
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = self.session.get(url, timeout=30, allow_redirects=True)
+                    if response.status_code == 200:
+                        break
+                    elif response.status_code == 404:
+                        self.logger.error(f"❌ Spieler {riot_id} nicht gefunden (404)")
+                        return None
+                    else:
+                        self.logger.warning(f"⚠️  Versuch {attempt + 1}: Status {response.status_code} für {riot_id}")
+                        if attempt < max_retries - 1:
+                            time.sleep(2)  # Kurze Pause vor Retry
+                except requests.exceptions.RequestException as e:
+                    self.logger.warning(f"⚠️  Versuch {attempt + 1} fehlgeschlagen für {riot_id}: {e}")
+                    if attempt < max_retries - 1:
+                        time.sleep(2)  # Kurze Pause vor Retry
+                    else:
+                        raise  # Re-raise nach letztem Versuch
+            
             if response.status_code != 200:
-                self.logger.error(f"❌ Fehler {response.status_code} für {riot_id}")
+                self.logger.error(f"❌ Fehler {response.status_code} für {riot_id} nach {max_retries} Versuchen")
                 return None
             
             # Parse HTML

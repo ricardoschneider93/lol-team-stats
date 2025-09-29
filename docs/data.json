@@ -4,665 +4,205 @@
     "Figure09#1893": {
       "riot_id": "Figure09#1893",
       "summoner_name": "Figure09#1893",
-      "tier": "Emerald",
-      "rank": "Emerald 4",
+      "tier": "Unranked",
+      "rank": "",
       "lp": 0,
-      "wins": 136,
-      "losses": 139,
-      "total_games": 275,
-      "win_rate": 49,
-      "main_champions": [
-        {
-          "name": "Urgot",
-          "wins": 31,
-          "losses": 32,
-          "games": 63,
-          "win_rate": 49
-        },
-        {
-          "name": "Gwen",
-          "wins": 29,
-          "losses": 27,
-          "games": 56,
-          "win_rate": 52
-        },
-        {
-          "name": "Ornn",
-          "wins": 19,
-          "losses": 13,
-          "games": 32,
-          "win_rate": 59
-        },
-        {
-          "name": "Sion",
-          "wins": 13,
-          "losses": 16,
-          "games": 29,
-          "win_rate": 45
-        },
-        {
-          "name": "Gnar",
-          "wins": 14,
-          "losses": 13,
-          "games": 27,
-          "win_rate": 52
-        }
-      ],
-      "last_updated": "2025-09-26 10:32:32",
-      "avg_gold": 15404,
-      "avg_cs": 163,
-      "vision_score": 29,
-      "avg_damage": 21346,
-      "kda_ratio": 2.81,
-      "kill_participation": 80,
-      "enhanced_champions": [
-        {
-          "name": "Urgot",
-          "wins": 31,
-          "losses": 32,
-          "games": 63,
-          "win_rate": 49,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Urgot.png",
-          "avg_kda": 1.51,
-          "avg_damage": 18581,
-          "avg_cs": 199
-        },
-        {
-          "name": "Gwen",
-          "wins": 29,
-          "losses": 27,
-          "games": 56,
-          "win_rate": 52,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Gwen.png",
-          "avg_kda": 2.77,
-          "avg_damage": 14407,
-          "avg_cs": 182
-        },
-        {
-          "name": "Ornn",
-          "wins": 19,
-          "losses": 13,
-          "games": 32,
-          "win_rate": 59,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Ornn.png",
-          "avg_kda": 3.52,
-          "avg_damage": 19579,
-          "avg_cs": 181
-        },
-        {
-          "name": "Sion",
-          "wins": 13,
-          "losses": 16,
-          "games": 29,
-          "win_rate": 45,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Sion.png",
-          "avg_kda": 2.04,
-          "avg_damage": 14546,
-          "avg_cs": 122
-        },
-        {
-          "name": "Gnar",
-          "wins": 14,
-          "losses": 13,
-          "games": 27,
-          "win_rate": 52,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Gnar.png",
-          "avg_kda": 3.45,
-          "avg_damage": 21337,
-          "avg_cs": 200
-        }
-      ],
+      "wins": 0,
+      "losses": 0,
+      "total_games": 0,
+      "win_rate": 0,
+      "main_champions": [],
+      "last_updated": "2025-09-29 13:41:49",
+      "avg_gold": 13981,
+      "avg_cs": 207,
+      "vision_score": 54,
+      "avg_damage": 21549,
+      "kda_ratio": 2.53,
+      "kill_participation": 59,
+      "enhanced_champions": [],
       "recent_performance": [
+        "W",
+        "L",
+        "W",
+        "W",
         "L",
         "W",
         "W",
         "L",
-        "W",
         "L",
-        "W",
-        "L",
-        "W",
         "L"
       ],
-      "primary_role": "Top",
+      "primary_role": "Flex",
       "role_distribution": {
-        "primary": 66,
-        "secondary": 27,
-        "fill": 13
+        "primary": 60,
+        "secondary": 24,
+        "fill": 11
       },
-      "avg_game_duration": 35,
-      "playtime_hours": 70
+      "avg_game_duration": 33,
+      "playtime_hours": 196
     },
     "cl1ck9r#EUWES": {
       "riot_id": "cl1ck9r#EUWES",
       "summoner_name": "cl1ck9r#EUWES",
-      "tier": "Master",
-      "rank": "Master",
-      "lp": 47,
-      "wins": 59,
-      "losses": 43,
-      "total_games": 102,
-      "win_rate": 58,
-      "main_champions": [
-        {
-          "name": "Viego",
-          "wins": 24,
-          "losses": 14,
-          "games": 38,
-          "win_rate": 63
-        },
-        {
-          "name": "Xerath",
-          "wins": 17,
-          "losses": 15,
-          "games": 32,
-          "win_rate": 53
-        },
-        {
-          "name": "Jarvan IV",
-          "wins": 18,
-          "losses": 11,
-          "games": 29,
-          "win_rate": 62
-        },
-        {
-          "name": "Nocturne",
-          "wins": 18,
-          "losses": 7,
-          "games": 25,
-          "win_rate": 72
-        },
-        {
-          "name": "Evelynn",
-          "wins": 9,
-          "losses": 7,
-          "games": 16,
-          "win_rate": 56
-        }
-      ],
-      "last_updated": "2025-09-26 10:32:34",
-      "avg_gold": 14759,
-      "avg_cs": 208,
-      "vision_score": 56,
-      "avg_damage": 19313,
-      "kda_ratio": 2.88,
-      "kill_participation": 55,
-      "enhanced_champions": [
-        {
-          "name": "Viego",
-          "wins": 24,
-          "losses": 14,
-          "games": 38,
-          "win_rate": 63,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Viego.png",
-          "avg_kda": 3.25,
-          "avg_damage": 21985,
-          "avg_cs": 155
-        },
-        {
-          "name": "Xerath",
-          "wins": 17,
-          "losses": 15,
-          "games": 32,
-          "win_rate": 53,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Xerath.png",
-          "avg_kda": 3.98,
-          "avg_damage": 15420,
-          "avg_cs": 184
-        },
-        {
-          "name": "Jarvan IV",
-          "wins": 18,
-          "losses": 11,
-          "games": 29,
-          "win_rate": 62,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/JarvanIV.png",
-          "avg_kda": 2.32,
-          "avg_damage": 19322,
-          "avg_cs": 160
-        },
-        {
-          "name": "Nocturne",
-          "wins": 18,
-          "losses": 7,
-          "games": 25,
-          "win_rate": 72,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Nocturne.png",
-          "avg_kda": 2.14,
-          "avg_damage": 14657,
-          "avg_cs": 135
-        },
-        {
-          "name": "Evelynn",
-          "wins": 9,
-          "losses": 7,
-          "games": 16,
-          "win_rate": 56,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Evelynn.png",
-          "avg_kda": 2.55,
-          "avg_damage": 21037,
-          "avg_cs": 143
-        }
-      ],
+      "tier": "Unranked",
+      "rank": "",
+      "lp": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_games": 0,
+      "win_rate": 0,
+      "main_champions": [],
+      "last_updated": "2025-09-29 13:41:51",
+      "avg_gold": 17638,
+      "avg_cs": 250,
+      "vision_score": 52,
+      "avg_damage": 26080,
+      "kda_ratio": 3.39,
+      "kill_participation": 71,
+      "enhanced_champions": [],
       "recent_performance": [
-        "L",
-        "L",
         "W",
         "L",
         "W",
         "L",
-        "W",
         "L",
         "W",
+        "W",
+        "L",
+        "L",
         "L"
       ],
-      "primary_role": "Jungle",
+      "primary_role": "Flex",
       "role_distribution": {
-        "primary": 60,
-        "secondary": 29,
-        "fill": 12
+        "primary": 67,
+        "secondary": 23,
+        "fill": 10
       },
       "avg_game_duration": 35,
-      "playtime_hours": 189
+      "playtime_hours": 90
     },
     "FXN Artelî#EUW": {
       "riot_id": "FXN Artelî#EUW",
       "summoner_name": "FXN Artelî#EUW",
-      "tier": "Master",
-      "rank": "Master",
-      "lp": 45,
-      "wins": 50,
-      "losses": 36,
-      "total_games": 86,
-      "win_rate": 58,
-      "main_champions": [
-        {
-          "name": "Syndra",
-          "wins": 38,
-          "losses": 18,
-          "games": 56,
-          "win_rate": 68
-        },
-        {
-          "name": "Karma",
-          "wins": 4,
-          "losses": 4,
-          "games": 8,
-          "win_rate": 50
-        },
-        {
-          "name": "Akali",
-          "wins": 4,
-          "losses": 4,
-          "games": 8,
-          "win_rate": 50
-        },
-        {
-          "name": "Lissandra",
-          "wins": 5,
-          "losses": 2,
-          "games": 7,
-          "win_rate": 71
-        },
-        {
-          "name": "Xerath",
-          "wins": 3,
-          "losses": 4,
-          "games": 7,
-          "win_rate": 43
-        }
-      ],
-      "last_updated": "2025-09-26 10:32:36",
-      "avg_gold": 16850,
-      "avg_cs": 162,
+      "tier": "Unranked",
+      "rank": "",
+      "lp": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_games": 0,
+      "win_rate": 0,
+      "main_champions": [],
+      "last_updated": "2025-09-29 13:41:53",
+      "avg_gold": 15842,
+      "avg_cs": 153,
       "vision_score": 34,
-      "avg_damage": 34448,
-      "kda_ratio": 3.31,
-      "kill_participation": 71,
-      "enhanced_champions": [
-        {
-          "name": "Syndra",
-          "wins": 38,
-          "losses": 18,
-          "games": 56,
-          "win_rate": 68,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Syndra.png",
-          "avg_kda": 1.84,
-          "avg_damage": 14269,
-          "avg_cs": 136
-        },
-        {
-          "name": "Karma",
-          "wins": 4,
-          "losses": 4,
-          "games": 8,
-          "win_rate": 50,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Karma.png",
-          "avg_kda": 3.6,
-          "avg_damage": 13641,
-          "avg_cs": 166
-        },
-        {
-          "name": "Akali",
-          "wins": 4,
-          "losses": 4,
-          "games": 8,
-          "win_rate": 50,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Akali.png",
-          "avg_kda": 2.12,
-          "avg_damage": 19208,
-          "avg_cs": 126
-        },
-        {
-          "name": "Lissandra",
-          "wins": 5,
-          "losses": 2,
-          "games": 7,
-          "win_rate": 71,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lissandra.png",
-          "avg_kda": 3.38,
-          "avg_damage": 12659,
-          "avg_cs": 170
-        },
-        {
-          "name": "Xerath",
-          "wins": 3,
-          "losses": 4,
-          "games": 7,
-          "win_rate": 43,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Xerath.png",
-          "avg_kda": 3.45,
-          "avg_damage": 23600,
-          "avg_cs": 153
-        }
-      ],
+      "avg_damage": 16688,
+      "kda_ratio": 3.36,
+      "kill_participation": 64,
+      "enhanced_champions": [],
       "recent_performance": [
         "L",
         "L",
-        "W",
-        "W",
+        "L",
         "L",
         "W",
         "W",
         "W",
         "W",
-        "W"
+        "L",
+        "L"
       ],
-      "primary_role": "Mid",
+      "primary_role": "Flex",
       "role_distribution": {
-        "primary": 66,
-        "secondary": 20,
-        "fill": 14
+        "primary": 65,
+        "secondary": 30,
+        "fill": 10
       },
       "avg_game_duration": 25,
-      "playtime_hours": 194
+      "playtime_hours": 154
     },
     "ActionBear#EUW": {
       "riot_id": "ActionBear#EUW",
       "summoner_name": "ActionBear#EUW",
-      "tier": "Emerald",
-      "rank": "Emerald 1",
-      "lp": 33,
-      "wins": 85,
-      "losses": 90,
-      "total_games": 175,
-      "win_rate": 49,
-      "main_champions": [
-        {
-          "name": "Jinx",
-          "wins": 36,
-          "losses": 31,
-          "games": 67,
-          "win_rate": 54
-        },
-        {
-          "name": "Kai'Sa",
-          "wins": 16,
-          "losses": 17,
-          "games": 33,
-          "win_rate": 48
-        },
-        {
-          "name": "Ziggs",
-          "wins": 15,
-          "losses": 11,
-          "games": 26,
-          "win_rate": 58
-        },
-        {
-          "name": "Jhin",
-          "wins": 9,
-          "losses": 9,
-          "games": 18,
-          "win_rate": 50
-        },
-        {
-          "name": "Vayne",
-          "wins": 5,
-          "losses": 7,
-          "games": 12,
-          "win_rate": 42
-        }
-      ],
-      "last_updated": "2025-09-26 10:32:38",
-      "avg_gold": 16163,
-      "avg_cs": 237,
-      "vision_score": 23,
-      "avg_damage": 30756,
-      "kda_ratio": 1.95,
-      "kill_participation": 68,
-      "enhanced_champions": [
-        {
-          "name": "Jinx",
-          "wins": 36,
-          "losses": 31,
-          "games": 67,
-          "win_rate": 54,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jinx.png",
-          "avg_kda": 2.3,
-          "avg_damage": 24603,
-          "avg_cs": 200
-        },
-        {
-          "name": "Kai'Sa",
-          "wins": 16,
-          "losses": 17,
-          "games": 33,
-          "win_rate": 48,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Kaisa.png",
-          "avg_kda": 3.87,
-          "avg_damage": 24276,
-          "avg_cs": 135
-        },
-        {
-          "name": "Ziggs",
-          "wins": 15,
-          "losses": 11,
-          "games": 26,
-          "win_rate": 58,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Ziggs.png",
-          "avg_kda": 1.54,
-          "avg_damage": 15419,
-          "avg_cs": 193
-        },
-        {
-          "name": "Jhin",
-          "wins": 9,
-          "losses": 9,
-          "games": 18,
-          "win_rate": 50,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jhin.png",
-          "avg_kda": 2.89,
-          "avg_damage": 14971,
-          "avg_cs": 149
-        },
-        {
-          "name": "Vayne",
-          "wins": 5,
-          "losses": 7,
-          "games": 12,
-          "win_rate": 42,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vayne.png",
-          "avg_kda": 1.64,
-          "avg_damage": 17327,
-          "avg_cs": 200
-        }
-      ],
+      "tier": "Unranked",
+      "rank": "",
+      "lp": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_games": 0,
+      "win_rate": 0,
+      "main_champions": [],
+      "last_updated": "2025-09-29 13:41:54",
+      "avg_gold": 14637,
+      "avg_cs": 160,
+      "vision_score": 48,
+      "avg_damage": 29091,
+      "kda_ratio": 1.88,
+      "kill_participation": 57,
+      "enhanced_champions": [],
       "recent_performance": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "W",
+        "L",
+        "W",
         "L",
         "L",
-        "L",
-        "W",
-        "W",
-        "W",
-        "W",
-        "W",
-        "W",
-        "W"
+        "L"
       ],
-      "primary_role": "ADC",
+      "primary_role": "Flex",
       "role_distribution": {
-        "primary": 65,
+        "primary": 70,
         "secondary": 25,
-        "fill": 5
+        "fill": 12
       },
-      "avg_game_duration": 34,
-      "playtime_hours": 176
+      "avg_game_duration": 35,
+      "playtime_hours": 184
     },
     "zeLLay#ff15": {
       "riot_id": "zeLLay#ff15",
       "summoner_name": "zeLLay#ff15",
-      "tier": "Diamond",
-      "rank": "Diamond 1",
-      "lp": 16,
-      "wins": 432,
-      "losses": 409,
-      "total_games": 841,
-      "win_rate": 51,
-      "main_champions": [
-        {
-          "name": "Braum",
-          "wins": 43,
-          "losses": 35,
-          "games": 78,
-          "win_rate": 55
-        },
-        {
-          "name": "Bard",
-          "wins": 47,
-          "losses": 27,
-          "games": 74,
-          "win_rate": 64
-        },
-        {
-          "name": "Lulu",
-          "wins": 36,
-          "losses": 31,
-          "games": 67,
-          "win_rate": 54
-        },
-        {
-          "name": "Alistar",
-          "wins": 29,
-          "losses": 34,
-          "games": 63,
-          "win_rate": 46
-        },
-        {
-          "name": "Rell",
-          "wins": 30,
-          "losses": 31,
-          "games": 61,
-          "win_rate": 49
-        }
-      ],
-      "last_updated": "2025-09-26 10:32:39",
-      "avg_gold": 16621,
-      "avg_cs": 237,
-      "vision_score": 43,
-      "avg_damage": 22277,
-      "kda_ratio": 3.44,
-      "kill_participation": 65,
-      "enhanced_champions": [
-        {
-          "name": "Braum",
-          "wins": 43,
-          "losses": 35,
-          "games": 78,
-          "win_rate": 55,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Braum.png",
-          "avg_kda": 2.78,
-          "avg_damage": 12645,
-          "avg_cs": 124
-        },
-        {
-          "name": "Bard",
-          "wins": 47,
-          "losses": 27,
-          "games": 74,
-          "win_rate": 64,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Bard.png",
-          "avg_kda": 2.49,
-          "avg_damage": 23997,
-          "avg_cs": 138
-        },
-        {
-          "name": "Lulu",
-          "wins": 36,
-          "losses": 31,
-          "games": 67,
-          "win_rate": 54,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lulu.png",
-          "avg_kda": 2.06,
-          "avg_damage": 22738,
-          "avg_cs": 187
-        },
-        {
-          "name": "Alistar",
-          "wins": 29,
-          "losses": 34,
-          "games": 63,
-          "win_rate": 46,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Alistar.png",
-          "avg_kda": 2.61,
-          "avg_damage": 17784,
-          "avg_cs": 128
-        },
-        {
-          "name": "Rell",
-          "wins": 30,
-          "losses": 31,
-          "games": 61,
-          "win_rate": 49,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Rell.png",
-          "avg_kda": 1.96,
-          "avg_damage": 18337,
-          "avg_cs": 189
-        }
-      ],
+      "tier": "Unranked",
+      "rank": "",
+      "lp": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_games": 0,
+      "win_rate": 0,
+      "main_champions": [],
+      "last_updated": "2025-09-29 13:41:57",
+      "avg_gold": 12943,
+      "avg_cs": 161,
+      "vision_score": 33,
+      "avg_damage": 34013,
+      "kda_ratio": 2.32,
+      "kill_participation": 72,
+      "enhanced_champions": [],
       "recent_performance": [
-        "W",
-        "W",
-        "W",
-        "W",
-        "W",
+        "L",
         "W",
         "W",
         "L",
         "W",
-        "L"
+        "L",
+        "L",
+        "L",
+        "L",
+        "W"
       ],
-      "primary_role": "Support",
+      "primary_role": "Flex",
       "role_distribution": {
-        "primary": 62,
-        "secondary": 28,
-        "fill": 9
+        "primary": 69,
+        "secondary": 25,
+        "fill": 15
       },
-      "avg_game_duration": 34,
-      "playtime_hours": 91
+      "avg_game_duration": 30,
+      "playtime_hours": 88
     }
   },
-  "last_updated": "2025-09-26 10:32:31",
+  "last_updated": "2025-09-29 13:41:48",
   "total_players": 5,
   "success_count": 5
 }
