@@ -293,6 +293,13 @@ class GitHubPagesGenerator:
                     </div>
                 </div>
                 
+                <div class="recent-games-section">
+                    <h4>Recent Games</h4>
+                    <div class="recent-games-list">
+                        {self._generate_recent_games_html(player.get('recent_games', []))}
+                    </div>
+                </div>
+                
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
@@ -387,6 +394,110 @@ class GitHubPagesGenerator:
         
         return ''.join(trend_html)
     
+    def _generate_recent_games_html(self, games: List[Dict]) -> str:
+        """Generiert HTML für Recent Games"""
+        if not games:
+            return "<div class='no-games'>Keine Recent Games verfügbar</div>"
+        
+        games_html = []
+        for game in games[:5]:  # Top 5 recent games
+            result = game.get('result', 'L')
+            champion = game.get('champion', 'Unknown')
+            kda = game.get('kda', '0/0/0')
+            cs = game.get('cs', 0)
+            duration = game.get('duration', '25m')
+            when = game.get('when', '1 day ago')
+            
+            result_class = 'win' if result == 'W' else 'loss'
+            champion_icon_url = self._get_champion_icon_url(champion)
+            
+            game_html = f"""
+            <div class="recent-game {result_class}">
+                <div class="game-result">
+                    <span class="result-badge {result_class}">{result}</span>
+                </div>
+                <div class="game-champion">
+                    <img src="{champion_icon_url}" alt="{champion}" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">{champion}</span>
+                </div>
+                <div class="game-stats">
+                    <span class="kda">{kda}</span>
+                    <span class="cs">{cs} CS</span>
+                </div>
+                <div class="game-info">
+                    <span class="duration">{duration}</span>
+                    <span class="when">{when}</span>
+                </div>
+            </div>
+            """
+            games_html.append(game_html)
+        
+        return '\n'.join(games_html)
+    
+    def _generate_ranking(self, players: List, stat_key: str) -> str:
+        """Generiert Player Ranking für eine bestimmte Statistik"""
+        if not players:
+            return "<div class='no-ranking'>Keine Daten verfügbar</div>"
+        
+        # Erstelle Ranking basierend auf dem stat_key
+        ranked_players = []
+        for name, player_data in players:
+            if stat_key == 'rank_value':
+                value = self._get_rank_value(player_data)
+                display_value = f"{player_data.get('tier', 'Unranked')} {player_data.get('lp', 0)}LP"
+            elif stat_key == 'performance_score':
+                # Berechne Performance Score für jeden Spieler
+                wr = player_data.get('win_rate', 0)
+                kda = player_data.get('kda_ratio', 1.0)
+                kp = player_data.get('kill_participation', 50)
+                value = min(100, round(wr * 0.4 + kda * 15 + kp * 0.45))
+                display_value = f"{value}/100"
+            else:
+                value = player_data.get(stat_key, 0)
+                if stat_key == 'win_rate':
+                    display_value = f"{value}%"
+                elif stat_key == 'kda_ratio':
+                    display_value = f"{value:.2f}"
+                else:
+                    display_value = str(value)
+            
+            player_name = name.split('#')[0] if '#' in name else name
+            ranked_players.append((player_name, value, display_value))
+        
+        # Sortiere absteigend
+        ranked_players.sort(key=lambda x: x[1], reverse=True)
+        
+        # Generiere Ranking HTML
+        ranking_html = []
+        medals = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣']
+        
+        for i, (player_name, value, display_value) in enumerate(ranked_players[:5]):
+            medal = medals[i] if i < len(medals) else f"{i+1}."
+            
+            # Performance basierte CSS Klasse
+            if stat_key in ['win_rate', 'kda_ratio', 'performance_score']:
+                if i == 0:
+                    rank_class = "rank-gold"
+                elif i == 1:
+                    rank_class = "rank-silver" 
+                elif i == 2:
+                    rank_class = "rank-bronze"
+                else:
+                    rank_class = "rank-normal"
+            else:
+                rank_class = "rank-normal"
+            
+            ranking_item = f"""
+            <div class="ranking-item {rank_class}">
+                <span class="rank-medal">{medal}</span>
+                <span class="rank-player">{player_name}</span>
+                <span class="rank-value">{display_value}</span>
+            </div>
+            """
+            ranking_html.append(ranking_item)
+        
+        return '\n'.join(ranking_html)
+    
     def _generate_team_overview(self, players) -> str:
         """Generiert Team-Übersicht im Grafana Style"""
         if not players:
@@ -432,36 +543,88 @@ class GitHubPagesGenerator:
                     <div class="kpi-header">
                         <span class="kpi-title">Win Rate</span>
                         <span class="kpi-trend {trend_class}">{trend_icon}</span>
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Team Win Rate</strong><br>
+                                Durchschnitt aller Spieler Win Rates<br>
+                                Berechnung: Σ(Wins) / Σ(Games) × 100<br>
+                                <em>Basiert auf {total_games} Gesamtspielen</em>
+                            </div>
+                        </div>
                     </div>
                     <div class="kpi-value">{avg_wr}%</div>
                     <div class="kpi-subtitle">{total_wins} wins of {total_games} games</div>
+                    <div class="kpi-ranking">
+                        <div class="ranking-title">🏆 Win Rate Leaderboard:</div>
+                        {self._generate_ranking(players, 'win_rate')}
+                    </div>
                 </div>
                 
                 <div class="kpi-card secondary">
                     <div class="kpi-header">
                         <span class="kpi-title">Performance Score</span>
                         <span class="kpi-icon">⭐</span>
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Team Performance Score</strong><br>
+                                Kombinierte Bewertung aus:<br>
+                                • Win Rate (40%)<br>
+                                • KDA Ratio (35%)<br>
+                                • Kill Participation (25%)<br>
+                                <em>0-100 Punkte Skala</em>
+                            </div>
+                        </div>
                     </div>
                     <div class="kpi-value">{performance_rating}/100</div>
                     <div class="kpi-subtitle">Overall team rating</div>
+                    <div class="kpi-ranking">
+                        <div class="ranking-title">🏆 Performance Leaderboard:</div>
+                        {self._generate_ranking(players, 'performance_score')}
+                    </div>
                 </div>
                 
                 <div class="kpi-card tertiary">
                     <div class="kpi-header">
                         <span class="kpi-title">Average KDA</span>
                         <span class="kpi-icon">⚔️</span>
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Average KDA Ratio</strong><br>
+                                Kill/Death/Assist Verhältnis<br>
+                                Berechnung: (Kills + Assists) / Deaths<br>
+                                <em>Höhere Werte = Bessere Performance</em><br>
+                                Team-Durchschnitt: {avg_kda}
+                            </div>
+                        </div>
                     </div>
                     <div class="kpi-value">{avg_kda}</div>
                     <div class="kpi-subtitle">Kill/Death/Assist ratio</div>
+                    <div class="kpi-ranking">
+                        <div class="ranking-title">🏆 KDA Leaderboard:</div>
+                        {self._generate_ranking(players, 'kda_ratio')}
+                    </div>
                 </div>
                 
                 <div class="kpi-card quaternary">
                     <div class="kpi-header">
                         <span class="kpi-title">Highest Rank</span>
                         <span class="kpi-icon">👑</span>
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Team's Highest Rank</strong><br>
+                                Beste Ranglistenplatzierung im Team<br>
+                                Berechnung: Max(Tier + Division + LP)<br>
+                                <em>Challenger > Master > Diamond > Emerald > ...</em><br>
+                                Erreicht von: {highest_player[0].split('#')[0] if '#' in highest_player[0] else highest_player[0]}
+                            </div>
+                        </div>
                     </div>
                     <div class="kpi-value">{highest_rank.split()[0] if highest_rank != 'Unranked' and len(highest_rank.split()) > 0 else 'Unranked'}</div>
                     <div class="kpi-subtitle">{highest_player[0].split('#')[0] if '#' in highest_player[0] else highest_player[0]}</div>
+                    <div class="kpi-ranking">
+                        <div class="ranking-title">🏆 Rank Leaderboard:</div>
+                        {self._generate_ranking(players, 'rank_value')}
+                    </div>
                 </div>
             </div>
             
@@ -1110,6 +1273,27 @@ class GitHubPagesGenerator:
             color: var(--danger-color);
         }}
         
+        /* ===== STAT TOOLTIPS ===== */
+        .stat-with-tooltip {{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        
+        .stat-item {{
+            position: relative;
+        }}
+        
+        .stat-item .tooltip-trigger {{
+            width: 14px;
+            height: 14px;
+            font-size: 0.6rem;
+        }}
+        
+        .stat-item .tooltip {{
+            min-width: 220px;
+        }}
+        
         .champion-icon {{
             width: 40px;
             height: 40px;
@@ -1123,6 +1307,344 @@ class GitHubPagesGenerator:
         .champion-icon:hover {{
             transform: scale(1.1);
             box-shadow: 0 0 15px rgba(200, 155, 60, 0.5);
+        }}
+        
+        /* Recent Games Section */
+        .recent-games-section {{
+            margin-bottom: 20px;
+        }}
+        
+        .recent-games-section h4 {{
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }}
+        
+        .recent-games-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }}
+        
+        .recent-game {{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--neutral-color);
+            transition: all 0.3s ease;
+        }}
+        
+        .recent-game.win {{
+            border-left-color: var(--success-color);
+            background: rgba(0, 245, 255, 0.05);
+        }}
+        
+        .recent-game.loss {{
+            border-left-color: var(--danger-color);
+            background: rgba(255, 100, 100, 0.05);
+        }}
+        
+        .game-result {{
+            margin-right: 12px;
+        }}
+        
+        .result-badge {{
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }}
+        
+        .result-badge.win {{
+            background: var(--success-color);
+            color: var(--bg-primary);
+        }}
+        
+        .result-badge.loss {{
+            background: var(--danger-color);
+            color: var(--bg-primary);
+        }}
+        
+        .game-champion {{
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            min-width: 120px;
+        }}
+        
+        .champion-icon-small {{
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            margin-right: 6px;
+            border: 1px solid var(--primary-color);
+        }}
+        
+        .champion-name-small {{
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }}
+        
+        .game-stats {{
+            display: flex;
+            flex-direction: column;
+            margin-right: 15px;
+            min-width: 80px;
+        }}
+        
+        .kda {{
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }}
+        
+        .cs {{
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }}
+        
+        .game-info {{
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            text-align: right;
+        }}
+        
+        .duration {{
+            font-size: 0.8rem;
+            color: var(--text-primary);
+        }}
+        
+        .when {{
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }}
+        
+        .no-games {{
+            padding: 15px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }}
+        
+        /* ===== MEGA TOOLTIP SYSTEM ===== */
+        .tooltip-trigger {{
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #FFD700);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: help;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(200, 155, 60, 0.3);
+            margin-left: auto;
+        }}
+        
+        .tooltip-trigger:hover {{
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(200, 155, 60, 0.5);
+            background: linear-gradient(135deg, #FFD700, var(--primary-color));
+        }}
+        
+        .tooltip {{
+            position: absolute;
+            top: -10px;
+            right: 25px;
+            background: linear-gradient(145deg, rgba(40, 52, 78, 0.98), rgba(30, 40, 60, 0.98));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(200, 155, 60, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            min-width: 280px;
+            max-width: 350px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                        0 0 0 1px rgba(200, 155, 60, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px) scale(0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }}
+        
+        .tooltip-trigger:hover .tooltip {{
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }}
+        
+        .tooltip strong {{
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }}
+        
+        .tooltip em {{
+            color: rgba(200, 155, 60, 0.8);
+            font-style: italic;
+            display: block;
+            margin-top: 8px;
+            font-size: 0.8rem;
+        }}
+        
+        /* ===== MEGA RANKING SYSTEM ===== */
+        .kpi-ranking {{
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(200, 155, 60, 0.2);
+            animation: slideInUp 0.6s ease-out;
+        }}
+        
+        .ranking-title {{
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        
+        .ranking-item {{
+            display: flex;
+            align-items: center;
+            padding: 6px 10px;
+            margin: 4px 0;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+        }}
+        
+        .ranking-item:hover {{
+            transform: translateX(5px) scale(1.02);
+            background: rgba(200, 155, 60, 0.1);
+            border-color: rgba(200, 155, 60, 0.3);
+        }}
+        
+        .rank-gold {{
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 223, 0, 0.05));
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 2px 12px rgba(255, 215, 0, 0.2);
+        }}
+        
+        .rank-silver {{
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.15), rgba(192, 192, 192, 0.05));
+            border-color: rgba(192, 192, 192, 0.3);
+        }}
+        
+        .rank-bronze {{
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.15), rgba(205, 127, 50, 0.05));
+            border-color: rgba(205, 127, 50, 0.3);
+        }}
+        
+        .rank-medal {{
+            font-size: 1rem;
+            margin-right: 8px;
+            min-width: 20px;
+        }}
+        
+        .rank-player {{
+            flex: 1;
+            font-weight: 500;
+            color: var(--text-primary);
+        }}
+        
+        .rank-value {{
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+        }}
+        
+        /* ===== ENHANCED KPI CARDS ===== */
+        .kpi-card {{
+            position: relative;
+            overflow: hidden;
+        }}
+        
+        .kpi-card::before {{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(200, 155, 60, 0.1) 0%,
+                rgba(0, 245, 255, 0.05) 50%,
+                rgba(200, 155, 60, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }}
+        
+        .kpi-card:hover::before {{
+            opacity: 1;
+        }}
+        
+        .kpi-card:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3),
+                        0 0 0 1px rgba(200, 155, 60, 0.3);
+        }}
+        
+        .kpi-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }}
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInUp {{
+            from {{
+                opacity: 0;
+                transform: translateY(20px);
+            }}
+            to {{
+                opacity: 1;
+                transform: translateY(0);
+            }}
+        }}
+        
+        @keyframes pulse {{
+            0%, 100% {{ transform: scale(1); }}
+            50% {{ transform: scale(1.05); }}
+        }}
+        
+        .kpi-value {{
+            animation: pulse 3s ease-in-out infinite;
+        }}
+        
+        /* ===== RESPONSIVE IMPROVEMENTS ===== */
+        @media (max-width: 768px) {{
+            .tooltip {{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                right: auto;
+                max-width: 90vw;
+            }}
+            
+            .kpi-ranking {{
+                display: none; /* Hide rankings on mobile for cleaner look */
+            }}
         }}
         
         .performance-section {{
