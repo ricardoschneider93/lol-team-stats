@@ -50,9 +50,10 @@ class GitHubPagesGenerator:
         # Erweitere Spielerdaten mit zusätzlichen Statistiken
         enhanced_players = self._enhance_player_data(team_data.get('players', {}))
         
-        # Sortiere Spieler nach Rank
+        # Sortiere Spieler nach Lane-Reihenfolge (TOP, JGL, MID, ADC, SUPP)
         players = list(enhanced_players.items())
-        players.sort(key=lambda x: self._get_rank_value(x[1]), reverse=True)
+        lane_order = {'TOP': 1, 'JGL': 2, 'MID': 3, 'ADC': 4, 'SUPP': 5, 'FLEX': 6}
+        players.sort(key=lambda x: lane_order.get(x[1].get('lane', 'FLEX'), 6))
         
         # Generiere alle Dashboard-Komponenten
         html_content = self.template.format(
@@ -401,7 +402,7 @@ class GitHubPagesGenerator:
             return "<div class='no-champions'>Keine Champion-Daten verfügbar</div>"
         
         cards_html = []
-        for champ in champions[:3]:  # Top 3 Champions
+        for champ in champions[:2]:  # Top 2 Champions für kompakte Ansicht
             icon_url = champ.get('icon_url', '')
             name = champ.get('name', 'Unknown')
             games = champ.get('games', 0)
@@ -433,7 +434,7 @@ class GitHubPagesGenerator:
                 kda_class = "poor"
             
             card_html = f"""
-            <div class="champion-card modern-card">
+            <div class="champion-card modern-card" data-champion="{name}">
                 <div class="champion-header">
                     <img src="{icon_url}" alt="{name}" class="champion-icon" loading="lazy" onerror="this.style.display='none'">
                     <div class="champion-basic-info">
@@ -442,6 +443,17 @@ class GitHubPagesGenerator:
                     </div>
                     <div class="champion-winrate {wr_class}">
                         {win_rate}%
+                        <div class="champion-tooltip">
+                            <strong>{name} Performance</strong><br>
+                            🏆 <strong>Win Rate:</strong> {win_rate}% ({wins}W-{losses}L)<br>
+                            🎮 <strong>Games Played:</strong> {games}<br>
+                            📊 <strong>Performance Rating:</strong> {wr_class.title()}<br>
+                            <br>
+                            💡 <strong>Analysis:</strong><br>
+                            {"Starker Champion für diesen Spieler!" if win_rate >= 60 else 
+                             "Solide Performance" if win_rate >= 50 else 
+                             "Potential für Verbesserung"}
+                        </div>
                     </div>
                 </div>
                 <div class="champion-stats-extended">
@@ -482,7 +494,7 @@ class GitHubPagesGenerator:
             return "<div class='no-games'>Keine Recent Games verfügbar</div>"
         
         games_html = []
-        for game in games[:5]:  # Top 5 recent games
+        for game in games[:3]:  # Top 3 recent games für kompakte Ansicht
             result = game.get('result', 'L')
             champion = game.get('champion', 'Unknown')
             kda = game.get('kda', '0/0/0')
@@ -1175,14 +1187,16 @@ class GitHubPagesGenerator:
         
         .players-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            max-width: 1600px;
+            margin: 0 auto;
         }}
         
         .player-card {{
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
             border-radius: 16px;
-            padding: 25px;
+            padding: 18px;
             border: 1px solid var(--border-color);
             box-shadow: 0 8px 32px var(--shadow);
             transition: all 0.3s ease;
@@ -1338,21 +1352,21 @@ class GitHubPagesGenerator:
         }}
         
         .champions-section {{
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }}
         
         .champions-section h4 {{
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
             font-weight: 600;
         }}
         
         .champions-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 12px;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 10px;
         }}
         
         @media (max-width: 768px) {{
@@ -1365,8 +1379,8 @@ class GitHubPagesGenerator:
         .modern-card {{
             display: flex !important;
             flex-direction: column !important;
-            gap: 8px !important;
-            padding: 16px !important;
+            gap: 6px !important;
+            padding: 12px !important;
             background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%) !important;
             border-radius: 12px !important;
             border: 1px solid var(--border-color) !important;
@@ -1577,13 +1591,13 @@ class GitHubPagesGenerator:
         
         /* Recent Games Section */
         .recent-games-section {{
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }}
         
         .recent-games-section h4 {{
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
             font-weight: 600;
         }}
         
@@ -1989,7 +2003,22 @@ class GitHubPagesGenerator:
             }}
             
             .players-grid {{
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }}
+        }}
+        
+        @media (max-width: 900px) {{
+            .players-grid {{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }}
+        }}
+        
+        @media (max-width: 600px) {{
+            .players-grid {{
                 grid-template-columns: 1fr;
+                gap: 15px;
             }}
             
             .player-stats-grid {{

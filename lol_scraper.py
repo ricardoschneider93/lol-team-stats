@@ -134,7 +134,21 @@ class LoLScraper:
         
         import random
         
-        for i in range(10):  # 10 Recent Games
+        # Generiere Games mit realistischen Zeitstempeln (chronologisch)
+        game_times = []
+        for i in range(10):
+            # Zeitstempel von vor 1-72 Stunden (chronologisch)
+            hours_ago = i * random.randint(2, 8) + random.randint(1, 6)
+            if hours_ago > 48:
+                when_text = f"{hours_ago // 24} days ago"
+            else:
+                when_text = f"{hours_ago} hours ago"
+            game_times.append((hours_ago, when_text))
+        
+        # Sortiere chronologisch (neueste zuerst)
+        game_times.sort(key=lambda x: x[0])
+        
+        for i, (hours_ago, when_text) in enumerate(game_times):
             # Champion auswählen basierend auf Gewichtung
             champion = random.choice(champion_pool)
             
@@ -174,7 +188,8 @@ class LoLScraper:
                 'kda': f"{kills}/{deaths}/{assists}",
                 'cs': cs,
                 'game_mode': random.choice(['Ranked Solo', 'Ranked Solo', 'Ranked Flex', 'Normal']),
-                'when': f"{random.randint(1, 48)} {'hours' if random.random() < 0.4 else 'days'} ago"
+                'when': when_text,
+                'hours_ago': hours_ago  # Für Sortierung
             }
             games.append(game_data)
         
