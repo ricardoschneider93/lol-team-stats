@@ -24,12 +24,11 @@ class LoLScraper:
         # Warnungen für unsichere Requests unterdrücken
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         
-        # Standard Browser Headers
+        # Standard Browser Headers (ohne problematische Encoding-Header)
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Accept-Language': 'de-DE,de;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
         })
@@ -83,11 +82,16 @@ class LoLScraper:
                 self.logger.error(f"❌ Fehler {response.status_code} für {riot_id} nach {max_retries} Versuchen")
                 return None
             
-            # Parse HTML
-            soup = BeautifulSoup(response.content, 'html.parser')
+            # Parse HTML mit korrektem Encoding
+            response.encoding = 'utf-8'  # Force UTF-8 encoding
+            soup = BeautifulSoup(response.text, 'html.parser')
             
             # Extrahiere Daten aus Meta-Tags (zuverlässigste Methode)
             stats = self._extract_player_data(soup, riot_id)
+            
+            # Debug: Log extracted data
+            if stats.get('tier') != 'Unranked':
+                self.logger.debug(f"Extracted: {riot_id} -> {stats.get('tier')} {stats.get('rank')} {stats.get('lp')}LP, Champions: {len(stats.get('main_champions', []))}")
             
             if stats and stats.get('summoner_name'):
                 self.logger.info(f"✅ {riot_id}: {stats.get('tier', 'Unknown')} - {stats.get('win_rate', 0)}% WR")
@@ -117,19 +121,36 @@ class LoLScraper:
         }
         
         try:
-            # Methode 1: Twitter Description (Hauptdatenquelle)
-            twitter_desc = soup.find('meta', {'name': 'twitter:description'})
-            if twitter_desc:
-                desc = twitter_desc.get('content', '')
-                self.logger.debug(f"Meta content: {desc}")
-                
+            # Methode 1: Description Meta-Tag (Hauptdatenquelle)
+            desc_meta = soup.find('meta', {'name': 'description'})
+            if desc_meta:
+                desc = desc_meta.get('content', '')
+                self.logger.debug(f"Meta description found: {desc}")
+            else:
+                self.logger.debug("Description meta tag NOT FOUND - trying alternatives")
+                # Versuche andere Meta-Tags
+                twitter_desc = soup.find('meta', {'name': 'twitter:description'})
+                if twitter_desc:
+                    desc = twitter_desc.get('content', '')
+                    self.logger.debug(f"Twitter description found: {desc}")
+                else:
+                    og_desc = soup.find('meta', {'property': 'og:description'})
+                    if og_desc:
+                        desc = og_desc.get('content', '')
+                        self.logger.debug(f"OG Description found: {desc}")
+                    else:
+                        self.logger.debug("No description meta tags found")
+                        desc = ""
+            
+            if desc:
                 # Parse Tier/Rank - Unterstützt alle Tiers inklusive Master/Grandmaster/Challenger
                 # Pattern Beispiele:
-                # "cl1ck9r#EUWES / Master 1 47LP" - Master Tier mit Ranking und LP
-                # "Figure09#1893 / Emerald 4 4 10LP" - Tier mit Division und LP
+                # "Figure09#1893 / Platinum 1 1 39LP" - Tier mit Division und LP
+                # "cl1ck9r#EUWES / Master 1 47LP" - Master+ Tier 
                 tier_patterns = [
-                    r'(Master|Grandmaster|Challenger)\s+\d+\s+(\d+)\s*LP',  # Master+ Format: "Master 1 47LP"
-                    r'(Iron|Bronze|Silver|Gold|Platinum|Diamond|Emerald)\s+(\d+)\s+\d+\s+(\d+)\s*LP',  # Mit Division
+                    r'(Master|Grandmaster|Challenger)\s+\d+\s+(\d+)\s*LP',  # Master+ Format
+                    r'(Iron|Bronze|Silver|Gold|Platinum|Diamond|Emerald)\s+(\d+)\s+\d+\s+(\d+)\s*LP',  # Mit Division, z.B. "Platinum 1 1 39LP"
+                    r'(Iron|Bronze|Silver|Gold|Platinum|Diamond|Emerald)\s+(\d+)\s+(\d+)\s*LP',  # Einfaches Format, z.B. "Gold 3 45LP"
                 ]
                 
                 for pattern in tier_patterns:
@@ -159,9 +180,9 @@ class LoLScraper:
                     data['win_rate'] = round((wins / (wins + losses)) * 100) if (wins + losses) > 0 else 0
                 
                 # Parse Champion Stats (aus der Description)
-                # Pattern: "Viego - 24Win 14Lose Win rate 63%"
+                # Pattern: "Urgot - 31Win 32Lose Win rate 49%"
                 champions = []
-                champ_matches = re.findall(r'([A-Za-z\'\.\s]+)\s+-\s+(\d+)Win\s+(\d+)Lose\s+Win\s+rate\s+(\d+)%', desc)
+                champ_matches = re.findall(r'([A-Za-z\'\.\s&]+)\s*-\s*(\d+)Win\s+(\d+)Lose\s+Win\s+rate\s+(\d+)%', desc)
                 for champ_name, champ_wins, champ_losses, champ_wr in champ_matches:
                     champions.append({
                         'name': champ_name.strip(),
@@ -172,6 +193,8 @@ class LoLScraper:
                     })
                 
                 data['main_champions'] = champions[:5]  # Top 5
+            else:
+                self.logger.warning(f"Keine Meta-Beschreibung gefunden für {riot_id}")
             
             return data
             
