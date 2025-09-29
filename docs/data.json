@@ -12,34 +12,34 @@
       "total_games": 0,
       "win_rate": 0,
       "main_champions": [],
-      "last_updated": "2025-09-29 13:41:49",
-      "avg_gold": 13981,
-      "avg_cs": 207,
-      "vision_score": 54,
-      "avg_damage": 21549,
-      "kda_ratio": 2.53,
-      "kill_participation": 59,
+      "last_updated": "2025-09-29 13:43:31",
+      "avg_gold": 15689,
+      "avg_cs": 161,
+      "vision_score": 26,
+      "avg_damage": 19510,
+      "kda_ratio": 3.16,
+      "kill_participation": 74,
       "enhanced_champions": [],
       "recent_performance": [
         "W",
         "L",
-        "W",
-        "W",
+        "L",
+        "L",
         "L",
         "W",
         "W",
-        "L",
-        "L",
-        "L"
+        "W",
+        "W",
+        "W"
       ],
       "primary_role": "Flex",
       "role_distribution": {
-        "primary": 60,
-        "secondary": 24,
-        "fill": 11
+        "primary": 62,
+        "secondary": 29,
+        "fill": 10
       },
-      "avg_game_duration": 33,
-      "playtime_hours": 196
+      "avg_game_duration": 32,
+      "playtime_hours": 138
     },
     "cl1ck9r#EUWES": {
       "riot_id": "cl1ck9r#EUWES",
@@ -52,34 +52,34 @@
       "total_games": 0,
       "win_rate": 0,
       "main_champions": [],
-      "last_updated": "2025-09-29 13:41:51",
-      "avg_gold": 17638,
-      "avg_cs": 250,
-      "vision_score": 52,
-      "avg_damage": 26080,
-      "kda_ratio": 3.39,
-      "kill_participation": 71,
+      "last_updated": "2025-09-29 13:43:32",
+      "avg_gold": 17205,
+      "avg_cs": 214,
+      "vision_score": 33,
+      "avg_damage": 30202,
+      "kda_ratio": 2.3,
+      "kill_participation": 70,
       "enhanced_champions": [],
       "recent_performance": [
         "W",
+        "W",
         "L",
         "W",
         "L",
+        "W",
         "L",
         "W",
         "W",
-        "L",
-        "L",
-        "L"
+        "W"
       ],
       "primary_role": "Flex",
       "role_distribution": {
-        "primary": 67,
-        "secondary": 23,
-        "fill": 10
+        "primary": 79,
+        "secondary": 24,
+        "fill": 14
       },
-      "avg_game_duration": 35,
-      "playtime_hours": 90
+      "avg_game_duration": 33,
+      "playtime_hours": 200
     },
     "FXN Artelî#EUW": {
       "riot_id": "FXN Artelî#EUW",
@@ -92,34 +92,34 @@
       "total_games": 0,
       "win_rate": 0,
       "main_champions": [],
-      "last_updated": "2025-09-29 13:41:53",
-      "avg_gold": 15842,
-      "avg_cs": 153,
-      "vision_score": 34,
-      "avg_damage": 16688,
-      "kda_ratio": 3.36,
-      "kill_participation": 64,
+      "last_updated": "2025-09-29 13:43:34",
+      "avg_gold": 13080,
+      "avg_cs": 157,
+      "vision_score": 31,
+      "avg_damage": 29890,
+      "kda_ratio": 2.66,
+      "kill_participation": 58,
       "enhanced_champions": [],
       "recent_performance": [
+        "W",
+        "W",
         "L",
-        "L",
-        "L",
+        "W",
         "L",
         "W",
         "W",
         "W",
         "W",
-        "L",
         "L"
       ],
       "primary_role": "Flex",
       "role_distribution": {
-        "primary": 65,
-        "secondary": 30,
-        "fill": 10
+        "primary": 75,
+        "secondary": 20,
+        "fill": 7
       },
-      "avg_game_duration": 25,
-      "playtime_hours": 154
+      "avg_game_duration": 26,
+      "playtime_hours": 181
     },
     "ActionBear#EUW": {
       "riot_id": "ActionBear#EUW",
@@ -132,34 +132,34 @@
       "total_games": 0,
       "win_rate": 0,
       "main_champions": [],
-      "last_updated": "2025-09-29 13:41:54",
-      "avg_gold": 14637,
-      "avg_cs": 160,
-      "vision_score": 48,
-      "avg_damage": 29091,
-      "kda_ratio": 1.88,
+      "last_updated": "2025-09-29 13:43:36",
+      "avg_gold": 15377,
+      "avg_cs": 238,
+      "vision_score": 26,
+      "avg_damage": 31113,
+      "kda_ratio": 2.43,
       "kill_participation": 57,
       "enhanced_champions": [],
       "recent_performance": [
         "W",
         "W",
         "L",
-        "W",
-        "W",
+        "L",
         "L",
         "W",
         "L",
+        "W",
         "L",
         "L"
       ],
       "primary_role": "Flex",
       "role_distribution": {
-        "primary": 70,
-        "secondary": 25,
-        "fill": 12
+        "primary": 75,
+        "secondary": 17,
+        "fill": 5
       },
-      "avg_game_duration": 35,
-      "playtime_hours": 184
+      "avg_game_duration": 32,
+      "playtime_hours": 160
     },
     "zeLLay#ff15": {
       "riot_id": "zeLLay#ff15",
@@ -172,37 +172,37 @@
       "total_games": 0,
       "win_rate": 0,
       "main_champions": [],
-      "last_updated": "2025-09-29 13:41:57",
-      "avg_gold": 12943,
-      "avg_cs": 161,
-      "vision_score": 33,
-      "avg_damage": 34013,
-      "kda_ratio": 2.32,
-      "kill_participation": 72,
+      "last_updated": "2025-09-29 13:43:38",
+      "avg_gold": 15654,
+      "avg_cs": 197,
+      "vision_score": 56,
+      "avg_damage": 19783,
+      "kda_ratio": 3.27,
+      "kill_participation": 55,
       "enhanced_champions": [],
       "recent_performance": [
         "L",
         "W",
+        "L",
+        "W",
         "W",
         "L",
         "W",
         "L",
         "L",
-        "L",
-        "L",
-        "W"
+        "L"
       ],
       "primary_role": "Flex",
       "role_distribution": {
-        "primary": 69,
-        "secondary": 25,
-        "fill": 15
+        "primary": 67,
+        "secondary": 24,
+        "fill": 13
       },
-      "avg_game_duration": 30,
-      "playtime_hours": 88
+      "avg_game_duration": 34,
+      "playtime_hours": 70
     }
   },
-  "last_updated": "2025-09-29 13:41:48",
+  "last_updated": "2025-09-29 13:43:29",
   "total_players": 5,
   "success_count": 5
 }
