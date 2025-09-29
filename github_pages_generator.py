@@ -442,10 +442,10 @@ class GitHubPagesGenerator:
                         <span class="champion-games">{games} Games ({wins}W/{losses}L)</span>
                     </div>
                     <div class="champion-winrate {wr_class}">
-                        {win_rate}%
+                        {win_rate:.2f}%
                         <div class="champion-tooltip">
                             <strong>{name} Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> {win_rate}% ({wins}W-{losses}L)<br>
+                            🏆 <strong>Win Rate:</strong> {win_rate:.2f}% ({wins}W-{losses}L)<br>
                             🎮 <strong>Games Played:</strong> {games}<br>
                             📊 <strong>Performance Rating:</strong> {wr_class.title()}<br>
                             <br>
@@ -549,7 +549,7 @@ class GitHubPagesGenerator:
             else:
                 value = player_data.get(stat_key, 0)
                 if stat_key == 'win_rate':
-                    display_value = f"{value}%"
+                    display_value = f"{value:.2f}%"
                 elif stat_key == 'kda_ratio':
                     display_value = f"{value:.2f}"
                 elif stat_key == 'avg_gold':
@@ -1187,10 +1187,11 @@ class GitHubPagesGenerator:
         
         .players-grid {{
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            max-width: 1600px;
+            grid-template-columns: repeat(5, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1800px;
             margin: 0 auto;
+            overflow-x: auto;
         }}
         
         .player-card {{
@@ -2003,22 +2004,29 @@ class GitHubPagesGenerator:
             }}
             
             .players-grid {{
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
+                grid-template-columns: repeat(4, minmax(260px, 1fr));
+                gap: 16px;
+            }}
+        }}
+        
+        @media (max-width: 1100px) {{
+            .players-grid {{
+                grid-template-columns: repeat(3, minmax(280px, 1fr));
+                gap: 15px;
             }}
         }}
         
         @media (max-width: 900px) {{
             .players-grid {{
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(2, minmax(300px, 1fr));
+                gap: 15px;
             }}
         }}
         
-        @media (max-width: 600px) {{
+        @media (max-width: 650px) {{
             .players-grid {{
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }}
             
             .player-stats-grid {{

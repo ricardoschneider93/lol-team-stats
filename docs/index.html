@@ -278,10 +278,11 @@
         
         .players-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            max-width: 1600px;
+            grid-template-columns: repeat(5, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1800px;
             margin: 0 auto;
+            overflow-x: auto;
         }
         
         .player-card {
@@ -1094,22 +1095,29 @@
             }
             
             .players-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
+                grid-template-columns: repeat(4, minmax(260px, 1fr));
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            .players-grid {
+                grid-template-columns: repeat(3, minmax(280px, 1fr));
+                gap: 15px;
             }
         }
         
         @media (max-width: 900px) {
             .players-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(2, minmax(300px, 1fr));
+                gap: 15px;
             }
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             .players-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 20px;
             }
             
             .player-stats-grid {
@@ -1136,7 +1144,7 @@
     <div class="container">
         <header class="header">
             <h1 class="team-name">The LoungeEsports</h1>
-            <p class="last-updated">Letzte Aktualisierung: 2025-09-29 15:02:42</p>
+            <p class="last-updated">Letzte Aktualisierung: 2025-09-29 15:08:51</p>
         </header>
         
         
@@ -1171,35 +1179,35 @@
             <div class="ranking-item rank-gold">
                 <span class="rank-medal">🥇</span>
                 <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">58%</span>
+                <span class="rank-value">58.00%</span>
             </div>
             
 
             <div class="ranking-item rank-silver">
                 <span class="rank-medal">🥈</span>
                 <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">58%</span>
+                <span class="rank-value">58.00%</span>
             </div>
             
 
             <div class="ranking-item rank-bronze">
                 <span class="rank-medal">🥉</span>
                 <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">52%</span>
+                <span class="rank-value">52.00%</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">51%</span>
+                <span class="rank-value">51.00%</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">ActionBear</span>
-                <span class="rank-value">49%</span>
+                <span class="rank-value">49.00%</span>
             </div>
             
                     </div>
@@ -1228,43 +1236,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="kpi-value">80/100</div>
+                    <div class="kpi-value">84/100</div>
                     <div class="kpi-subtitle">Overall team rating</div>
                     <div class="kpi-ranking">
                         <div class="ranking-title">🏆 Performance Leaderboard:</div>
                         
             <div class="ranking-item rank-gold">
                 <span class="rank-medal">🥇</span>
-                <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">84/100</span>
+                <span class="rank-player">ActionBear</span>
+                <span class="rank-value">95/100</span>
             </div>
             
 
             <div class="ranking-item rank-silver">
                 <span class="rank-medal">🥈</span>
-                <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">81/100</span>
+                <span class="rank-player">cl1ck9r</span>
+                <span class="rank-value">86/100</span>
             </div>
             
 
             <div class="ranking-item rank-bronze">
                 <span class="rank-medal">🥉</span>
-                <span class="rank-player">ActionBear</span>
-                <span class="rank-value">81/100</span>
+                <span class="rank-player">zeLLay</span>
+                <span class="rank-value">83/100</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
                 <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">80/100</span>
+                <span class="rank-value">82/100</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
-                <span class="rank-player">zeLLay</span>
-                <span class="rank-value">70/100</span>
+                <span class="rank-player">FXN Artelî</span>
+                <span class="rank-value">80/100</span>
             </div>
             
                     </div>
@@ -1280,47 +1288,47 @@
                                 Kill/Death/Assist Verhältnis<br>
                                 Berechnung: (Kills + Assists) / Deaths<br>
                                 <em>Höhere Werte = Bessere Performance</em><br>
-                                Team-Durchschnitt: 1.83
+                                Team-Durchschnitt: 2.23
                             </div>
                         </div>
                     </div>
-                    <div class="kpi-value">1.83</div>
+                    <div class="kpi-value">2.23</div>
                     <div class="kpi-subtitle">Kill/Death/Assist ratio</div>
                     <div class="kpi-ranking">
                         <div class="ranking-title">🏆 KDA Leaderboard:</div>
                         
             <div class="ranking-item rank-gold">
                 <span class="rank-medal">🥇</span>
-                <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">2.06</span>
+                <span class="rank-player">ActionBear</span>
+                <span class="rank-value">2.99</span>
             </div>
             
 
             <div class="ranking-item rank-silver">
                 <span class="rank-medal">🥈</span>
-                <span class="rank-player">cl1ck9r</span>
+                <span class="rank-player">FXN Artelî</span>
                 <span class="rank-value">2.06</span>
             </div>
             
 
             <div class="ranking-item rank-bronze">
                 <span class="rank-medal">🥉</span>
+                <span class="rank-player">cl1ck9r</span>
+                <span class="rank-value">2.06</span>
+            </div>
+            
+
+            <div class="ranking-item rank-normal">
+                <span class="rank-medal">4️⃣</span>
                 <span class="rank-player">MarsFlag</span>
                 <span class="rank-value">2.02</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
-                <span class="rank-medal">4️⃣</span>
-                <span class="rank-player">ActionBear</span>
-                <span class="rank-value">1.99</span>
-            </div>
-            
-
-            <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">1.00</span>
+                <span class="rank-value">2.01</span>
             </div>
             
                     </div>
@@ -1407,47 +1415,47 @@
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Gold per Game</span>
-                            <span class="stat-value">14,117</span>
+                            <span class="stat-value">14,393</span>
                         </div>
                         <div class="stat-row">
                             <span>Avg CS per Game</span>
-                            <span class="stat-value">158</span>
+                            <span class="stat-value">166</span>
                         </div>
                         <div class="stat-leaderboard">
                             <div class="ranking-title">🏆 Gold Leaderboard:</div>
                             
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥇</span>
-                <span class="rank-player">ActionBear</span>
-                <span class="rank-value">17,181g</span>
+                <span class="rank-player">MarsFlag</span>
+                <span class="rank-value">16,522g</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥈</span>
                 <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">15,013g</span>
+                <span class="rank-value">15,304g</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥉</span>
                 <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">14,625g</span>
+                <span class="rank-value">15,262g</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
-                <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">14,313g</span>
+                <span class="rank-player">ActionBear</span>
+                <span class="rank-value">15,244g</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">9,454g</span>
+                <span class="rank-value">9,633g</span>
             </div>
             
                         </div>
@@ -1457,35 +1465,35 @@
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥇</span>
                 <span class="rank-player">ActionBear</span>
-                <span class="rank-value">219 CS</span>
+                <span class="rank-value">230 CS</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥈</span>
-                <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">200 CS</span>
+                <span class="rank-player">MarsFlag</span>
+                <span class="rank-value">227 CS</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥉</span>
-                <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">195 CS</span>
+                <span class="rank-player">FXN Artelî</span>
+                <span class="rank-value">224 CS</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
                 <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">142 CS</span>
+                <span class="rank-value">134 CS</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">34 CS</span>
+                <span class="rank-value">17 CS</span>
             </div>
             
                         </div>
@@ -1514,7 +1522,7 @@
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Damage per Game</span>
-                            <span class="stat-value">19,672</span>
+                            <span class="stat-value">18,678</span>
                         </div>
                         <div class="stat-row">
                             <span>Kill Participation</span>
@@ -1525,36 +1533,36 @@
                             
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥇</span>
-                <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">26,541</span>
+                <span class="rank-player">FXN Artelî</span>
+                <span class="rank-value">24,330</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥈</span>
                 <span class="rank-player">ActionBear</span>
-                <span class="rank-value">23,804</span>
+                <span class="rank-value">23,655</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥉</span>
-                <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">22,073</span>
+                <span class="rank-player">MarsFlag</span>
+                <span class="rank-value">21,096</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
                 <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">16,070</span>
+                <span class="rank-value">14,600</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">9,873</span>
+                <span class="rank-value">9,707</span>
             </div>
             
                         </div>
@@ -1564,35 +1572,35 @@
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥇</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">78</span>
+                <span class="rank-value">73</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥈</span>
-                <span class="rank-player">ActionBear</span>
-                <span class="rank-value">71</span>
+                <span class="rank-player">cl1ck9r</span>
+                <span class="rank-value">72</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥉</span>
-                <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">67</span>
+                <span class="rank-player">MarsFlag</span>
+                <span class="rank-value">69</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
-                <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">65</span>
+                <span class="rank-player">ActionBear</span>
+                <span class="rank-value">67</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
                 <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">60</span>
+                <span class="rank-value">57</span>
             </div>
             
                         </div>
@@ -1624,7 +1632,7 @@
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Vision Score</span>
-                            <span class="stat-value">34</span>
+                            <span class="stat-value">38</span>
                         </div>
                         <div class="stat-row">
                             <span>Team Size</span>
@@ -1636,35 +1644,35 @@
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥇</span>
                 <span class="rank-player">zeLLay</span>
-                <span class="rank-value">53</span>
+                <span class="rank-value">76</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥈</span>
                 <span class="rank-player">cl1ck9r</span>
-                <span class="rank-value">43</span>
+                <span class="rank-value">50</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">🥉</span>
                 <span class="rank-player">FXN Artelî</span>
-                <span class="rank-value">29</span>
+                <span class="rank-value">26</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">4️⃣</span>
-                <span class="rank-player">ActionBear</span>
-                <span class="rank-value">25</span>
+                <span class="rank-player">MarsFlag</span>
+                <span class="rank-value">22</span>
             </div>
             
 
             <div class="ranking-item rank-normal">
                 <span class="rank-medal">5️⃣</span>
-                <span class="rank-player">MarsFlag</span>
-                <span class="rank-value">21</span>
+                <span class="rank-player">ActionBear</span>
+                <span class="rank-value">14</span>
             </div>
             
                         </div>
@@ -1704,15 +1712,15 @@
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">22,073</span>
+                        <span class="stat-value">24,330</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">200</span>
+                        <span class="stat-value">224</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">Vision</span>
-                        <span class="stat-value">29</span>
+                        <span class="stat-value">26</span>
                     </div>
                 </div>
                 
@@ -1728,10 +1736,10 @@
                         <span class="champion-games">56 Games (38W/18L)</span>
                     </div>
                     <div class="champion-winrate excellent">
-                        68%
+                        68.00%
                         <div class="champion-tooltip">
                             <strong>Syndra Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 68% (38W-18L)<br>
+                            🏆 <strong>Win Rate:</strong> 68.00% (38W-18L)<br>
                             🎮 <strong>Games Played:</strong> 56<br>
                             📊 <strong>Performance Rating:</strong> Excellent<br>
                             <br>
@@ -1743,15 +1751,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">3.2</span>
+                        <span class="stat-value excellent">2.77</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">12,967</span>
+                        <span class="stat-value">13,491</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">164</span>
+                        <span class="stat-value">188</span>
                     </div>
                 </div>
             </div>
@@ -1765,10 +1773,10 @@
                         <span class="champion-games">9 Games (5W/4L)</span>
                     </div>
                     <div class="champion-winrate good">
-                        56%
+                        56.00%
                         <div class="champion-tooltip">
                             <strong>Akali Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 56% (5W-4L)<br>
+                            🏆 <strong>Win Rate:</strong> 56.00% (5W-4L)<br>
                             🎮 <strong>Games Played:</strong> 9<br>
                             📊 <strong>Performance Rating:</strong> Good<br>
                             <br>
@@ -1780,15 +1788,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">3.59</span>
+                        <span class="stat-value average">1.86</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">15,371</span>
+                        <span class="stat-value">19,820</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">128</span>
+                        <span class="stat-value">146</span>
                     </div>
                 </div>
             </div>
@@ -1809,12 +1817,12 @@
                     <span class="champion-name-small">Syndra</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">10/2/10</span>
-                    <span class="cs">173 CS</span>
+                    <span class="kda">16/3/14</span>
+                    <span class="cs">200 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">26m</span>
-                    <span class="when">3 hours ago</span>
+                    <span class="duration">40m</span>
+                    <span class="when">1 hours ago</span>
                 </div>
             </div>
             
@@ -1828,31 +1836,31 @@
                     <span class="champion-name-small">Syndra</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">5/5/10</span>
-                    <span class="cs">208 CS</span>
+                    <span class="kda">3/7/0</span>
+                    <span class="cs">179 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">30m</span>
-                    <span class="when">8 hours ago</span>
+                    <span class="duration">29m</span>
+                    <span class="when">5 hours ago</span>
                 </div>
             </div>
             
 
-            <div class="recent-game loss">
+            <div class="recent-game win">
                 <div class="game-result">
-                    <span class="result-badge loss">L</span>
+                    <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
                     <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Syndra.png" alt="Syndra" class="champion-icon-small" loading="lazy">
                     <span class="champion-name-small">Syndra</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">1/8/14</span>
-                    <span class="cs">184 CS</span>
+                    <span class="kda">11/3/14</span>
+                    <span class="cs">273 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">32m</span>
-                    <span class="when">12 hours ago</span>
+                    <span class="duration">42m</span>
+                    <span class="when">6 hours ago</span>
                 </div>
             </div>
             
@@ -1862,7 +1870,7 @@
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
-                        <span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span>
+                        <span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span>
                     </div>
                 </div>
             </div>
@@ -1894,15 +1902,15 @@
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">16,070</span>
+                        <span class="stat-value">14,600</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">142</span>
+                        <span class="stat-value">134</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">Vision</span>
-                        <span class="stat-value">43</span>
+                        <span class="stat-value">50</span>
                     </div>
                 </div>
                 
@@ -1918,10 +1926,10 @@
                         <span class="champion-games">38 Games (24W/14L)</span>
                     </div>
                     <div class="champion-winrate excellent">
-                        63%
+                        63.00%
                         <div class="champion-tooltip">
                             <strong>Viego Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 63% (24W-14L)<br>
+                            🏆 <strong>Win Rate:</strong> 63.00% (24W-14L)<br>
                             🎮 <strong>Games Played:</strong> 38<br>
                             📊 <strong>Performance Rating:</strong> Excellent<br>
                             <br>
@@ -1933,15 +1941,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value good">2.21</span>
+                        <span class="stat-value average">1.71</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">24,305</span>
+                        <span class="stat-value">18,693</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">131</span>
+                        <span class="stat-value">161</span>
                     </div>
                 </div>
             </div>
@@ -1955,10 +1963,10 @@
                         <span class="champion-games">32 Games (17W/15L)</span>
                     </div>
                     <div class="champion-winrate average">
-                        53%
+                        53.00%
                         <div class="champion-tooltip">
                             <strong>Xerath Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 53% (17W-15L)<br>
+                            🏆 <strong>Win Rate:</strong> 53.00% (17W-15L)<br>
                             🎮 <strong>Games Played:</strong> 32<br>
                             📊 <strong>Performance Rating:</strong> Average<br>
                             <br>
@@ -1970,15 +1978,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">3.76</span>
+                        <span class="stat-value good">2.09</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">15,290</span>
+                        <span class="stat-value">12,742</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">144</span>
+                        <span class="stat-value">145</span>
                     </div>
                 </div>
             </div>
@@ -1995,15 +2003,34 @@
                     <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/JarvanIV.png" alt="Jarvan IV" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Jarvan IV</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Nocturne.png" alt="Nocturne" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Nocturne</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">4/1/8</span>
-                    <span class="cs">117 CS</span>
+                    <span class="kda">3/6/10</span>
+                    <span class="cs">144 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">23m</span>
+                    <span class="duration">35m</span>
+                    <span class="when">1 hours ago</span>
+                </div>
+            </div>
+            
+
+            <div class="recent-game loss">
+                <div class="game-result">
+                    <span class="result-badge loss">L</span>
+                </div>
+                <div class="game-champion">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Viego.png" alt="Viego" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Viego</span>
+                </div>
+                <div class="game-stats">
+                    <span class="kda">1/9/9</span>
+                    <span class="cs">179 CS</span>
+                </div>
+                <div class="game-info">
+                    <span class="duration">42m</span>
                     <span class="when">4 hours ago</span>
                 </div>
             </div>
@@ -2014,35 +2041,16 @@
                     <span class="result-badge loss">L</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/JarvanIV.png" alt="Jarvan IV" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Jarvan IV</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Xerath.png" alt="Xerath" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Xerath</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">3/11/1</span>
-                    <span class="cs">205 CS</span>
+                    <span class="kda">5/9/6</span>
+                    <span class="cs">158 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">39m</span>
-                    <span class="when">10 hours ago</span>
-                </div>
-            </div>
-            
-
-            <div class="recent-game loss">
-                <div class="game-result">
-                    <span class="result-badge loss">L</span>
-                </div>
-                <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Nocturne.png" alt="Nocturne" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Nocturne</span>
-                </div>
-                <div class="game-stats">
-                    <span class="kda">1/8/14</span>
-                    <span class="cs">138 CS</span>
-                </div>
-                <div class="game-info">
-                    <span class="duration">22m</span>
-                    <span class="when">12 hours ago</span>
+                    <span class="duration">27m</span>
+                    <span class="when">8 hours ago</span>
                 </div>
             </div>
             
@@ -2052,7 +2060,7 @@
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
-                        <span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span>
+                        <span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span>
                     </div>
                 </div>
             </div>
@@ -2084,15 +2092,15 @@
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">26,541</span>
+                        <span class="stat-value">21,096</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">195</span>
+                        <span class="stat-value">227</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">Vision</span>
-                        <span class="stat-value">21</span>
+                        <span class="stat-value">22</span>
                     </div>
                 </div>
                 
@@ -2108,10 +2116,10 @@
                         <span class="champion-games">47 Games (32W/15L)</span>
                     </div>
                     <div class="champion-winrate excellent">
-                        68%
+                        68.00%
                         <div class="champion-tooltip">
                             <strong>Hwei Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 68% (32W-15L)<br>
+                            🏆 <strong>Win Rate:</strong> 68.00% (32W-15L)<br>
                             🎮 <strong>Games Played:</strong> 47<br>
                             📊 <strong>Performance Rating:</strong> Excellent<br>
                             <br>
@@ -2123,15 +2131,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">3.31</span>
+                        <span class="stat-value excellent">3.79</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">24,483</span>
+                        <span class="stat-value">15,994</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">195</span>
+                        <span class="stat-value">123</span>
                     </div>
                 </div>
             </div>
@@ -2145,10 +2153,10 @@
                         <span class="champion-games">23 Games (12W/11L)</span>
                     </div>
                     <div class="champion-winrate average">
-                        52%
+                        52.00%
                         <div class="champion-tooltip">
                             <strong>Syndra Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 52% (12W-11L)<br>
+                            🏆 <strong>Win Rate:</strong> 52.00% (12W-11L)<br>
                             🎮 <strong>Games Played:</strong> 23<br>
                             📊 <strong>Performance Rating:</strong> Average<br>
                             <br>
@@ -2160,15 +2168,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value good">2.04</span>
+                        <span class="stat-value excellent">2.67</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">17,692</span>
+                        <span class="stat-value">22,818</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">173</span>
+                        <span class="stat-value">163</span>
                     </div>
                 </div>
             </div>
@@ -2180,40 +2188,21 @@
                     <h4>Recent Games</h4>
                     <div class="recent-games-list">
                         
-            <div class="recent-game loss">
+            <div class="recent-game win">
                 <div class="game-result">
-                    <span class="result-badge loss">L</span>
+                    <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Hwei.png" alt="Hwei" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Hwei</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vex.png" alt="Vex" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Vex</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">10/7/1</span>
-                    <span class="cs">220 CS</span>
+                    <span class="kda">5/0/17</span>
+                    <span class="cs">224 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">34m</span>
-                    <span class="when">6 hours ago</span>
-                </div>
-            </div>
-            
-
-            <div class="recent-game loss">
-                <div class="game-result">
-                    <span class="result-badge loss">L</span>
-                </div>
-                <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Orianna.png" alt="Orianna" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Orianna</span>
-                </div>
-                <div class="game-stats">
-                    <span class="kda">8/10/8</span>
-                    <span class="cs">160 CS</span>
-                </div>
-                <div class="game-info">
-                    <span class="duration">32m</span>
-                    <span class="when">6 hours ago</span>
+                    <span class="duration">38m</span>
+                    <span class="when">3 hours ago</span>
                 </div>
             </div>
             
@@ -2223,16 +2212,35 @@
                     <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vex.png" alt="Vex" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Vex</span>
+                </div>
+                <div class="game-stats">
+                    <span class="kda">7/1/13</span>
+                    <span class="cs">77 CS</span>
+                </div>
+                <div class="game-info">
+                    <span class="duration">18m</span>
+                    <span class="when">3 hours ago</span>
+                </div>
+            </div>
+            
+
+            <div class="recent-game loss">
+                <div class="game-result">
+                    <span class="result-badge loss">L</span>
+                </div>
+                <div class="game-champion">
                     <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Hwei.png" alt="Hwei" class="champion-icon-small" loading="lazy">
                     <span class="champion-name-small">Hwei</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">3/1/19</span>
-                    <span class="cs">188 CS</span>
+                    <span class="kda">8/6/4</span>
+                    <span class="cs">162 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">34m</span>
-                    <span class="when">10 hours ago</span>
+                    <span class="duration">25m</span>
+                    <span class="when">7 hours ago</span>
                 </div>
             </div>
             
@@ -2242,7 +2250,7 @@
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
-                        <span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span>
+                        <span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span>
                     </div>
                 </div>
             </div>
@@ -2270,19 +2278,19 @@
                 <div class="player-stats-grid">
                     <div class="stat-box">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value">1.99</span>
+                        <span class="stat-value">2.99</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">23,804</span>
+                        <span class="stat-value">23,655</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">219</span>
+                        <span class="stat-value">230</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">Vision</span>
-                        <span class="stat-value">25</span>
+                        <span class="stat-value">14</span>
                     </div>
                 </div>
                 
@@ -2298,10 +2306,10 @@
                         <span class="champion-games">67 Games (36W/31L)</span>
                     </div>
                     <div class="champion-winrate average">
-                        54%
+                        54.00%
                         <div class="champion-tooltip">
                             <strong>Jinx Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 54% (36W-31L)<br>
+                            🏆 <strong>Win Rate:</strong> 54.00% (36W-31L)<br>
                             🎮 <strong>Games Played:</strong> 67<br>
                             📊 <strong>Performance Rating:</strong> Average<br>
                             <br>
@@ -2313,15 +2321,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value average">1.84</span>
+                        <span class="stat-value excellent">2.51</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">12,562</span>
+                        <span class="stat-value">19,804</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">199</span>
+                        <span class="stat-value">195</span>
                     </div>
                 </div>
             </div>
@@ -2335,10 +2343,10 @@
                         <span class="champion-games">33 Games (16W/17L)</span>
                     </div>
                     <div class="champion-winrate poor">
-                        48%
+                        48.00%
                         <div class="champion-tooltip">
                             <strong>Kai'Sa Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 48% (16W-17L)<br>
+                            🏆 <strong>Win Rate:</strong> 48.00% (16W-17L)<br>
                             🎮 <strong>Games Played:</strong> 33<br>
                             📊 <strong>Performance Rating:</strong> Poor<br>
                             <br>
@@ -2350,15 +2358,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">2.71</span>
+                        <span class="stat-value excellent">3.19</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">16,180</span>
+                        <span class="stat-value">16,045</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">127</span>
+                        <span class="stat-value">162</span>
                     </div>
                 </div>
             </div>
@@ -2375,15 +2383,15 @@
                     <span class="result-badge loss">L</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jinx.png" alt="Jinx" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Jinx</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vayne.png" alt="Vayne" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Vayne</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">8/7/0</span>
-                    <span class="cs">232 CS</span>
+                    <span class="kda">4/10/6</span>
+                    <span class="cs">122 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">41m</span>
+                    <span class="duration">25m</span>
                     <span class="when">2 hours ago</span>
                 </div>
             </div>
@@ -2394,16 +2402,16 @@
                     <span class="result-badge loss">L</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vayne.png" alt="Vayne" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Vayne</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jinx.png" alt="Jinx" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Jinx</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">11/2/1</span>
-                    <span class="cs">251 CS</span>
+                    <span class="kda">6/7/11</span>
+                    <span class="cs">199 CS</span>
                 </div>
                 <div class="game-info">
                     <span class="duration">36m</span>
-                    <span class="when">5 hours ago</span>
+                    <span class="when">2 hours ago</span>
                 </div>
             </div>
             
@@ -2413,16 +2421,16 @@
                     <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jhin.png" alt="Jhin" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Jhin</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Ziggs.png" alt="Ziggs" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Ziggs</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">11/1/6</span>
-                    <span class="cs">166 CS</span>
+                    <span class="kda">13/0/14</span>
+                    <span class="cs">177 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">40m</span>
-                    <span class="when">13 hours ago</span>
+                    <span class="duration">32m</span>
+                    <span class="when">8 hours ago</span>
                 </div>
             </div>
             
@@ -2432,7 +2440,7 @@
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
-                        <span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span>
+                        <span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span>
                     </div>
                 </div>
             </div>
@@ -2460,19 +2468,19 @@
                 <div class="player-stats-grid">
                     <div class="stat-box">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value">1.0</span>
+                        <span class="stat-value">2.01</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">9,873</span>
+                        <span class="stat-value">9,707</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">34</span>
+                        <span class="stat-value">17</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-label">Vision</span>
-                        <span class="stat-value">53</span>
+                        <span class="stat-value">76</span>
                     </div>
                 </div>
                 
@@ -2488,10 +2496,10 @@
                         <span class="champion-games">78 Games (43W/35L)</span>
                     </div>
                     <div class="champion-winrate good">
-                        55%
+                        55.00%
                         <div class="champion-tooltip">
                             <strong>Braum Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 55% (43W-35L)<br>
+                            🏆 <strong>Win Rate:</strong> 55.00% (43W-35L)<br>
                             🎮 <strong>Games Played:</strong> 78<br>
                             📊 <strong>Performance Rating:</strong> Good<br>
                             <br>
@@ -2503,15 +2511,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value good">2.35</span>
+                        <span class="stat-value average">1.54</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">24,716</span>
+                        <span class="stat-value">22,046</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">157</span>
+                        <span class="stat-value">175</span>
                     </div>
                 </div>
             </div>
@@ -2525,10 +2533,10 @@
                         <span class="champion-games">75 Games (48W/27L)</span>
                     </div>
                     <div class="champion-winrate excellent">
-                        64%
+                        64.00%
                         <div class="champion-tooltip">
                             <strong>Bard Performance</strong><br>
-                            🏆 <strong>Win Rate:</strong> 64% (48W-27L)<br>
+                            🏆 <strong>Win Rate:</strong> 64.00% (48W-27L)<br>
                             🎮 <strong>Games Played:</strong> 75<br>
                             📊 <strong>Performance Rating:</strong> Excellent<br>
                             <br>
@@ -2540,15 +2548,15 @@
                 <div class="champion-stats-extended">
                     <div class="stat-item">
                         <span class="stat-label">KDA</span>
-                        <span class="stat-value excellent">3.79</span>
+                        <span class="stat-value excellent">2.66</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">DMG</span>
-                        <span class="stat-value">16,276</span>
+                        <span class="stat-value">14,608</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">CS</span>
-                        <span class="stat-value">156</span>
+                        <span class="stat-value">122</span>
                     </div>
                 </div>
             </div>
@@ -2565,15 +2573,34 @@
                     <span class="result-badge win">W</span>
                 </div>
                 <div class="game-champion">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lulu.png" alt="Lulu" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Lulu</span>
+                </div>
+                <div class="game-stats">
+                    <span class="kda">13/1/17</span>
+                    <span class="cs">127 CS</span>
+                </div>
+                <div class="game-info">
+                    <span class="duration">28m</span>
+                    <span class="when">1 hours ago</span>
+                </div>
+            </div>
+            
+
+            <div class="recent-game loss">
+                <div class="game-result">
+                    <span class="result-badge loss">L</span>
+                </div>
+                <div class="game-champion">
                     <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Braum.png" alt="Braum" class="champion-icon-small" loading="lazy">
                     <span class="champion-name-small">Braum</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">5/3/5</span>
-                    <span class="cs">89 CS</span>
+                    <span class="kda">2/11/15</span>
+                    <span class="cs">165 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">19m</span>
+                    <span class="duration">28m</span>
                     <span class="when">3 hours ago</span>
                 </div>
             </div>
@@ -2584,34 +2611,15 @@
                     <span class="result-badge loss">L</span>
                 </div>
                 <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Braum.png" alt="Braum" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Braum</span>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lulu.png" alt="Lulu" class="champion-icon-small" loading="lazy">
+                    <span class="champion-name-small">Lulu</span>
                 </div>
                 <div class="game-stats">
-                    <span class="kda">0/11/0</span>
-                    <span class="cs">100 CS</span>
+                    <span class="kda">12/12/2</span>
+                    <span class="cs">116 CS</span>
                 </div>
                 <div class="game-info">
-                    <span class="duration">21m</span>
-                    <span class="when">7 hours ago</span>
-                </div>
-            </div>
-            
-
-            <div class="recent-game loss">
-                <div class="game-result">
-                    <span class="result-badge loss">L</span>
-                </div>
-                <div class="game-champion">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Bard.png" alt="Bard" class="champion-icon-small" loading="lazy">
-                    <span class="champion-name-small">Bard</span>
-                </div>
-                <div class="game-stats">
-                    <span class="kda">9/6/7</span>
-                    <span class="cs">96 CS</span>
-                </div>
-                <div class="game-info">
-                    <span class="duration">21m</span>
+                    <span class="duration">18m</span>
                     <span class="when">8 hours ago</span>
                 </div>
             </div>
@@ -2622,7 +2630,7 @@
                 <div class="performance-section">
                     <h4>Recent Games</h4>
                     <div class="performance-trend">
-                        <span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span>
+                        <span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result loss">L</span><span class="game-result win">W</span><span class="game-result win">W</span><span class="game-result win">W</span>
                     </div>
                 </div>
             </div>
@@ -2645,7 +2653,7 @@
     <script>
         // Chart.js Configuration
         document.addEventListener('DOMContentLoaded', function() {
-            const playerData = {"labels": ["FXN Artel\u00ee", "cl1ck9r", "MarsFlag", "ActionBear", "zeLLay"], "winRates": [58, 58, 52, 49, 51], "kdaRatios": [2.06, 2.06, 2.02, 1.99, 1.0]};
+            const playerData = {"labels": ["FXN Artel\u00ee", "cl1ck9r", "MarsFlag", "ActionBear", "zeLLay"], "winRates": [58, 58, 52, 49, 51], "kdaRatios": [2.06, 2.06, 2.02, 2.99, 2.01]};
             
             if (document.getElementById('teamStatsChart')) {
                 const ctx = document.getElementById('teamStatsChart').getContext('2d');

@@ -134,18 +134,38 @@ class LoLScraper:
         
         import random
         
-        # Generiere Games mit realistischen Zeitstempeln (chronologisch)
+        # Generiere Games mit realistischen Zeitstempeln (wie op.gg)
         game_times = []
+        
+        # Realistische Zeitverteilung: neueste zuerst
+        base_hours = [
+            1, 3, 6, 12, 18, 24, 36, 48, 72, 96  # Von 1 Stunde bis 4 Tage ago
+        ]
+        
         for i in range(10):
-            # Zeitstempel von vor 1-72 Stunden (chronologisch)
-            hours_ago = i * random.randint(2, 8) + random.randint(1, 6)
-            if hours_ago > 48:
-                when_text = f"{hours_ago // 24} days ago"
+            # Nehme base hours und füge etwas Variation hinzu
+            if i < len(base_hours):
+                hours_ago = base_hours[i] + random.randint(-1, 2)
             else:
+                hours_ago = base_hours[-1] + i * random.randint(12, 24)
+            
+            # Stelle sicher dass hours_ago positiv ist
+            hours_ago = max(1, hours_ago)
+            
+            # Formatiere wie op.gg
+            if hours_ago < 24:
                 when_text = f"{hours_ago} hours ago"
+            elif hours_ago < 48:
+                when_text = "1 day ago"
+            elif hours_ago < 168:  # 7 Tage
+                days = hours_ago // 24
+                when_text = f"{days} days ago"
+            else:
+                when_text = "1 week ago"
+                
             game_times.append((hours_ago, when_text))
         
-        # Sortiere chronologisch (neueste zuerst)
+        # WICHTIG: Nach hours_ago sortieren (aufsteigend = neueste zuerst in der Liste)
         game_times.sort(key=lambda x: x[0])
         
         for i, (hours_ago, when_text) in enumerate(game_times):
