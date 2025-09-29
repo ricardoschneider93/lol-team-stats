@@ -1008,10 +1008,60 @@ class GitHubPagesGenerator:
             text-shadow: 0 0 30px rgba(200, 155, 60, 0.3);
         }}
         
+        .update-section {{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+        }}
+        
         .last-updated {{
             color: var(--text-secondary);
             font-size: 1.1rem;
             font-weight: 400;
+            margin: 0;
+        }}
+        
+        .update-btn {{
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ffa726 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(200, 155, 60, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        
+        .update-btn:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 155, 60, 0.5);
+            background: linear-gradient(135deg, #ffa726 0%, var(--primary-color) 100%);
+        }}
+        
+        .update-btn:active {{
+            transform: translateY(0);
+        }}
+        
+        .update-btn.loading {{
+            opacity: 0.7;
+            cursor: not-allowed;
+        }}
+        
+        .update-btn.loading .update-icon {{
+            animation: spin 1s linear infinite;
+        }}
+        
+        @keyframes spin {{
+            from {{ transform: rotate(0deg); }}
+            to {{ transform: rotate(360deg); }}
         }}
         
         /* Grafana-Style Dashboard */
@@ -2113,7 +2163,13 @@ class GitHubPagesGenerator:
     <div class="container">
         <header class="header">
             <h1 class="team-name">{team_name}</h1>
-            <p class="last-updated">Letzte Aktualisierung: {last_updated}</p>
+            <div class="update-section">
+                <p class="last-updated">Letzte Aktualisierung: {last_updated}</p>
+                <button class="update-btn" onclick="updateData()">
+                    <span class="update-icon">🔄</span>
+                    <span class="update-text">Aktualisieren</span>
+                </button>
+            </div>
         </header>
         
         {team_overview}
@@ -2291,6 +2347,89 @@ class GitHubPagesGenerator:
                 tooltip.style.top = top + 'px';
             }});
         }});
+        
+        // Update Function
+        function updateData() {{
+            const btn = document.querySelector('.update-btn');
+            const icon = btn.querySelector('.update-icon');
+            const text = btn.querySelector('.update-text');
+            
+            // Loading state
+            btn.classList.add('loading');
+            text.textContent = 'Aktualisiere...';
+            
+            // Show notification
+            showNotification('🔄 Daten werden aktualisiert...', 'info');
+            
+            // Simulate update process (since it's static HTML)
+            setTimeout(() => {{
+                // Reload page to get new data
+                window.location.reload();
+            }}, 2000);
+        }}
+        
+        // Notification System
+        function showNotification(message, type = 'info') {{
+            // Remove existing notifications
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${{type}}`;
+            notification.innerHTML = `
+                <span>${{message}}</span>
+                <button onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${{type === 'info' ? 'rgba(33, 150, 243, 0.9)' : 'rgba(76, 175, 80, 0.9)'}};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 100000;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-weight: 500;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.2);
+            `;
+            
+            notification.querySelector('button').style.cssText = `
+                background: none;
+                border: none;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {{
+                if (notification.parentElement) {{
+                    notification.remove();
+                }}
+            }}, 5000);
+        }}
+        
+        // Auto-refresh every 30 minutes (1800000 ms)
+        setInterval(() => {{
+            showNotification('🔄 Automatische Aktualisierung...', 'info');
+            setTimeout(() => window.location.reload(), 2000);
+        }}, 1800000);
+        
     </script>
 </body>
 </html>"""
