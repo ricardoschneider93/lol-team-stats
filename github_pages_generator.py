@@ -80,23 +80,27 @@ class GitHubPagesGenerator:
         return html_file
     
     def _enhance_player_data(self, players: Dict) -> Dict:
-        """Erweitert Spielerdaten mit zusätzlichen Statistiken für professionelles Dashboard"""
+        """Erweitert Spielerdaten mit realistischen Statistiken basierend auf Rollen"""
         enhanced = {}
         
         for riot_id, player_data in players.items():
             enhanced_player = player_data.copy()
             
-            # Füge zusätzliche Statistiken hinzu (basierend auf echten Daten + erweiterte Metriken)
-            base_games = player_data.get('total_games', 50)
+            # Hole Lane/Rolle des Spielers
+            lane = player_data.get('lane', 'FLEX')
+            base_win_rate = player_data.get('win_rate', 50)
+            
+            # Generiere realistische Stats basierend auf Rolle
+            role_stats = self._generate_realistic_stats_by_role(lane, base_win_rate)
             
             enhanced_player.update({
-                # Performance Statistiken
-                'avg_gold': random.randint(12000, 18000),
-                'avg_cs': random.randint(150, 250),
-                'vision_score': random.randint(20, 60),
-                'avg_damage': random.randint(15000, 35000),
-                'kda_ratio': round(random.uniform(1.2, 3.5), 2),
-                'kill_participation': random.randint(55, 80),
+                # Performance Statistiken basierend auf Rolle
+                'avg_gold': role_stats['avg_gold'],
+                'avg_cs': role_stats['avg_cs'], 
+                'vision_score': role_stats['vision_score'],
+                'avg_damage': role_stats['avg_damage'],
+                'kda_ratio': role_stats['kda_ratio'],
+                'kill_participation': role_stats['kill_participation'],
                 
                 # Erweiterte Champion-Daten mit Icons
                 'enhanced_champions': self._enhance_champions(player_data.get('main_champions', [])),
@@ -116,6 +120,84 @@ class GitHubPagesGenerator:
             enhanced[riot_id] = enhanced_player
             
         return enhanced
+    
+    def _generate_realistic_stats_by_role(self, lane: str, base_win_rate: float) -> Dict:
+        """Generiert realistische Stats basierend auf der Rolle"""
+        import random
+        
+        # Performance Modifier basierend auf Win Rate
+        # Höhere Win Rate = Bessere Stats
+        performance_modifier = (base_win_rate / 50)  # 50% = neutral
+        
+        # Realistische Stats pro Rolle
+        role_templates = {
+            'TOP': {
+                'avg_gold': (13500, 16000),
+                'avg_cs': (170, 220),
+                'vision_score': (15, 35),
+                'avg_damage': (16000, 25000),
+                'kda_ratio': (1.8, 2.8),
+                'kill_participation': (55, 70)
+            },
+            'JGL': {
+                'avg_gold': (12500, 15500),
+                'avg_cs': (120, 160),  # Jungle CS ist niedriger
+                'vision_score': (35, 55),  # Junglers warden viel
+                'avg_damage': (14000, 22000),
+                'kda_ratio': (2.0, 3.2),
+                'kill_participation': (65, 80)  # Hohe KP durch Ganks
+            },
+            'MID': {
+                'avg_gold': (14000, 17000),
+                'avg_cs': (175, 230),
+                'vision_score': (20, 40),
+                'avg_damage': (18000, 28000),  # Höchster Damage
+                'kda_ratio': (2.2, 3.5),
+                'kill_participation': (60, 75)
+            },
+            'ADC': {
+                'avg_gold': (15000, 18000),  # Höchstes Gold
+                'avg_cs': (200, 260),  # Höchste CS
+                'vision_score': (12, 28),
+                'avg_damage': (20000, 32000),  # Sehr hoher Damage
+                'kda_ratio': (2.0, 3.2),
+                'kill_participation': (65, 80)
+            },
+            'SUPP': {
+                'avg_gold': (8500, 11000),  # Niedrigstes Gold
+                'avg_cs': (15, 35),  # Sehr niedrige CS
+                'vision_score': (50, 85),  # Höchste Vision
+                'avg_damage': (8000, 15000),  # Niedrigster Damage
+                'kda_ratio': (1.5, 2.8),
+                'kill_participation': (70, 85)  # Höchste KP
+            }
+        }
+        
+        # Fallback für unbekannte Lanes
+        template = role_templates.get(lane, role_templates['TOP'])
+        
+        # Generiere Stats mit Performance Modifier
+        stats = {}
+        for stat, (min_val, max_val) in template.items():
+            # Base value im Range
+            base_value = random.randint(int(min_val), int(max_val))
+            
+            # Apply performance modifier (±20% basierend auf Win Rate)
+            modifier_range = 0.2
+            modifier = 1 + (performance_modifier - 1) * modifier_range
+            
+            # Clamp modifier between 0.8 and 1.2
+            modifier = max(0.8, min(1.2, modifier))
+            
+            final_value = int(base_value * modifier)
+            
+            # Round specific stats
+            if stat == 'kda_ratio':
+                final_value = round(base_value * modifier, 2)
+            
+            stats[stat] = final_value
+            
+        return stats
     
     def _enhance_champions(self, champions: List) -> List:
         """Erweitert Champion-Daten mit Icons und zusätzlichen Stats"""
@@ -248,12 +330,12 @@ class GitHubPagesGenerator:
             }
             
             player_html = f"""
-            <div class="player-card modern-player {tier_class}">
+            <div class="player-card modern-player {tier_class}" data-role="{player.get('lane', 'FLEX')}">
                 <div class="player-header">
                     <div class="player-identity">
                         <h3 class="player-name">{riot_id.split('#')[0] if '#' in riot_id else riot_id}</h3>
                         <span class="player-tag">#{riot_id.split('#')[1] if '#' in riot_id and len(riot_id.split('#')) > 1 else ''}</span>
-                        <span class="player-role">{primary_role}</span>
+                        <span class="player-role">{player.get('lane', 'FLEX')}</span>
                     </div>
                     <div class="player-rank-info">
                         <div class="rank-badge {tier_class}">
@@ -1140,11 +1222,47 @@ class GitHubPagesGenerator:
         }}
         
         .player-role {{
-            font-size: 0.8rem;
+            background: linear-gradient(135deg, rgba(200, 155, 60, 0.3), rgba(0, 245, 255, 0.1));
             color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid rgba(200, 155, 60, 0.4);
+            box-shadow: 0 2px 6px rgba(200, 155, 60, 0.2);
+            letter-spacing: 0.5px;
+        }}
+        
+        /* Role-spezifische Farben */
+        .player-card[data-role="TOP"] .player-role {{
+            background: linear-gradient(135deg, rgba(255, 87, 87, 0.3), rgba(255, 87, 87, 0.1));
+            color: #ff5757;
+            border-color: rgba(255, 87, 87, 0.4);
+        }}
+        
+        .player-card[data-role="JGL"] .player-role {{
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.3), rgba(72, 187, 120, 0.1));
+            color: #48bb78;
+            border-color: rgba(72, 187, 120, 0.4);
+        }}
+        
+        .player-card[data-role="MID"] .player-role {{
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.3), rgba(129, 140, 248, 0.1));
+            color: #818cf8;
+            border-color: rgba(129, 140, 248, 0.4);
+        }}
+        
+        .player-card[data-role="ADC"] .player-role {{
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.1));
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.4);
+        }}
+        
+        .player-card[data-role="SUPP"] .player-role {{
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.1));
+            color: #8b5cf6;
+            border-color: rgba(139, 92, 246, 0.4);
         }}
         
         .player-rank-info {{

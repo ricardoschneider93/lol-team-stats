@@ -24,6 +24,9 @@ class LoLScraper:
         # Warnungen für unsichere Requests unterdrücken
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         
+        # Lane Mapping aus config.py extrahieren
+        self.lane_mapping = self._extract_lane_mapping()
+        
         # Standard Browser Headers (ohne problematische Encoding-Header)
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -177,6 +180,29 @@ class LoLScraper:
         
         return games
     
+    def _extract_lane_mapping(self) -> Dict[str, str]:
+        """Extrahiert Lane-Mapping aus config.py Kommentaren"""
+        lane_mapping = {}
+        try:
+            # Lese config.py direkt
+            with open('config.py', 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Parse die Zeilen mit Spielern und Kommentaren
+            import re
+            # Pattern: "Spielername#Tag": {...}, #LANE
+            pattern = r'"([^"]+#[^"]+)"\s*:\s*\{[^}]*\}\s*,?\s*#\s*(\w+)'
+            matches = re.findall(pattern, content)
+            
+            for riot_id, lane in matches:
+                lane_mapping[riot_id] = lane
+                self.logger.debug(f"Lane mapping: {riot_id} -> {lane}")
+                
+        except Exception as e:
+            self.logger.warning(f"Could not extract lane mapping: {e}")
+        
+        return lane_mapping
+    
     def get_player_stats(self, riot_id: str, region: str = "euw") -> Optional[Dict]:
         """Holt Spieler-Stats von op.gg"""
         try:
@@ -231,9 +257,12 @@ class LoLScraper:
                 self.logger.debug(f"Extracted: {riot_id} -> {stats.get('tier')} {stats.get('rank')} {stats.get('lp')}LP, Champions: {len(stats.get('main_champions', []))}")
             
             if stats and stats.get('summoner_name'):
+                # Füge Lane-Information hinzu
+                stats['lane'] = self.lane_mapping.get(riot_id, 'FLEX')
+                
                 # Füge Recent Games hinzu basierend auf Champions
                 stats['recent_games'] = self._generate_recent_games_from_champions(stats)
-                self.logger.info(f"✅ {riot_id}: {stats.get('tier', 'Unknown')} - {stats.get('win_rate', 0)}% WR")
+                self.logger.info(f"✅ {riot_id}: {stats.get('tier', 'Unknown')} - {stats.get('win_rate', 0)}% WR ({stats['lane']})")
                 return stats
             else:
                 self.logger.error(f"❌ Keine Daten für {riot_id}")
