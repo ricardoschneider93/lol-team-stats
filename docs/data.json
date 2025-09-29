@@ -48,193 +48,193 @@
           "win_rate": 43
         }
       ],
-      "last_updated": "2025-09-29 15:28:18",
+      "last_updated": "2025-09-29 15:30:47",
       "lane": "TOP",
       "recent_games": [
         {
-          "result": "W",
-          "duration": "32m",
-          "champion": "Syndra",
-          "kda": "16/6/19",
-          "cs": 174,
-          "game_mode": "Ranked Solo",
-          "when": "1 hours ago",
-          "hours_ago": 1
+          "result": "L",
+          "duration": "26m",
+          "champion": "Xerath",
+          "kda": "0/4/0",
+          "cs": 146,
+          "game_mode": "Normal",
+          "when": "2 hours ago",
+          "hours_ago": 2
         },
         {
           "result": "W",
-          "duration": "26m",
-          "champion": "Syndra",
-          "kda": "6/6/11",
-          "cs": 126,
-          "game_mode": "Ranked Flex",
+          "duration": "24m",
+          "champion": "Karma",
+          "kda": "10/0/18",
+          "cs": 106,
+          "game_mode": "Ranked Solo",
           "when": "3 hours ago",
           "hours_ago": 3
         },
         {
-          "result": "W",
-          "duration": "20m",
-          "champion": "Akali",
-          "kda": "15/4/5",
-          "cs": 103,
+          "result": "L",
+          "duration": "19m",
+          "champion": "Syndra",
+          "kda": "9/11/2",
+          "cs": 100,
           "game_mode": "Ranked Flex",
           "when": "5 hours ago",
           "hours_ago": 5
         },
         {
           "result": "W",
-          "duration": "29m",
-          "champion": "Syndra",
-          "kda": "15/6/20",
-          "cs": 178,
-          "game_mode": "Ranked Flex",
-          "when": "13 hours ago",
-          "hours_ago": 13
-        },
-        {
-          "result": "W",
-          "duration": "29m",
-          "champion": "Syndra",
-          "kda": "2/5/4",
-          "cs": 186,
-          "game_mode": "Ranked Solo",
-          "when": "17 hours ago",
-          "hours_ago": 17
-        },
-        {
-          "result": "W",
-          "duration": "20m",
-          "champion": "Syndra",
-          "kda": "14/1/4",
-          "cs": 107,
-          "game_mode": "Ranked Solo",
-          "when": "1 day ago",
-          "hours_ago": 24
-        },
-        {
-          "result": "L",
           "duration": "33m",
-          "champion": "Akali",
-          "kda": "10/12/7",
-          "cs": 150,
-          "game_mode": "Ranked Solo",
-          "when": "1 day ago",
-          "hours_ago": 36
-        },
-        {
-          "result": "L",
-          "duration": "36m",
-          "champion": "Xerath",
-          "kda": "0/5/4",
-          "cs": 252,
-          "game_mode": "Ranked Solo",
-          "when": "1 day ago",
-          "hours_ago": 47
+          "champion": "Syndra",
+          "kda": "2/2/14",
+          "cs": 174,
+          "game_mode": "Normal",
+          "when": "14 hours ago",
+          "hours_ago": 14
         },
         {
           "result": "W",
-          "duration": "25m",
+          "duration": "36m",
           "champion": "Syndra",
-          "kda": "13/3/17",
-          "cs": 173,
-          "game_mode": "Normal",
-          "when": "3 days ago",
-          "hours_ago": 74
+          "kda": "14/2/3",
+          "cs": 221,
+          "game_mode": "Ranked Flex",
+          "when": "20 hours ago",
+          "hours_ago": 20
+        },
+        {
+          "result": "W",
+          "duration": "36m",
+          "champion": "Syndra",
+          "kda": "9/2/5",
+          "cs": 163,
+          "game_mode": "Ranked Flex",
+          "when": "1 day ago",
+          "hours_ago": 25
         },
         {
           "result": "W",
           "duration": "40m",
           "champion": "Syndra",
-          "kda": "7/5/14",
-          "cs": 178,
+          "kda": "13/6/16",
+          "cs": 268,
+          "game_mode": "Normal",
+          "when": "1 day ago",
+          "hours_ago": 36
+        },
+        {
+          "result": "L",
+          "duration": "39m",
+          "champion": "Xerath",
+          "kda": "10/3/3",
+          "cs": 176,
+          "game_mode": "Ranked Solo",
+          "when": "2 days ago",
+          "hours_ago": 49
+        },
+        {
+          "result": "L",
+          "duration": "24m",
+          "champion": "Syndra",
+          "kda": "5/8/10",
+          "cs": 144,
+          "game_mode": "Ranked Solo",
+          "when": "2 days ago",
+          "hours_ago": 71
+        },
+        {
+          "result": "W",
+          "duration": "18m",
+          "champion": "Syndra",
+          "kda": "8/6/14",
+          "cs": 72,
           "game_mode": "Ranked Flex",
           "when": "4 days ago",
           "hours_ago": 98
         }
       ],
-      "avg_gold": 14004,
-      "avg_cs": 187,
-      "vision_score": 17,
-      "avg_damage": 21121,
-      "kda_ratio": 2.06,
-      "kill_participation": 58,
+      "avg_gold": 16117,
+      "avg_cs": 189,
+      "vision_score": 15,
+      "avg_damage": 21326,
+      "kda_ratio": 1.03,
+      "kill_participation": 63,
       "enhanced_champions": [
         {
           "name": "Syndra",
-          "wins": 39,
-          "losses": 17,
+          "wins": 38,
+          "losses": 18,
           "games": 56,
-          "win_rate": 71,
+          "win_rate": 68,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Syndra.png",
-          "avg_kda": 2.7,
-          "avg_damage": 22536,
-          "avg_cs": 182
+          "avg_kda": 3.46,
+          "avg_damage": 12847,
+          "avg_cs": 196
         },
         {
           "name": "Akali",
           "wins": 5,
           "losses": 4,
           "games": 9,
-          "win_rate": 65,
+          "win_rate": 61,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Akali.png",
-          "avg_kda": 2.37,
-          "avg_damage": 16101,
-          "avg_cs": 171
+          "avg_kda": 1.91,
+          "avg_damage": 12211,
+          "avg_cs": 151
         },
         {
           "name": "Karma",
-          "wins": 4,
-          "losses": 4,
+          "wins": 3,
+          "losses": 5,
           "games": 8,
-          "win_rate": 56,
+          "win_rate": 42,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Karma.png",
-          "avg_kda": 2.32,
-          "avg_damage": 23397,
-          "avg_cs": 190
+          "avg_kda": 2.24,
+          "avg_damage": 24639,
+          "avg_cs": 120
         },
         {
           "name": "Lissandra",
-          "wins": 4,
-          "losses": 3,
-          "games": 7,
-          "win_rate": 60,
-          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lissandra.png",
-          "avg_kda": 2.6,
-          "avg_damage": 24551,
-          "avg_cs": 158
-        },
-        {
-          "name": "Xerath",
           "wins": 3,
           "losses": 4,
           "games": 7,
-          "win_rate": 52,
+          "win_rate": 56,
+          "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lissandra.png",
+          "avg_kda": 2.42,
+          "avg_damage": 16766,
+          "avg_cs": 171
+        },
+        {
+          "name": "Xerath",
+          "wins": 2,
+          "losses": 5,
+          "games": 7,
+          "win_rate": 42,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Xerath.png",
-          "avg_kda": 3.06,
-          "avg_damage": 21502,
-          "avg_cs": 193
+          "avg_kda": 3.08,
+          "avg_damage": 15152,
+          "avg_cs": 191
         }
       ],
       "recent_performance": [
         "W",
+        "L",
+        "W",
+        "L",
         "W",
         "W",
         "L",
         "L",
         "L",
-        "W",
-        "W",
-        "W",
         "W"
       ],
       "primary_role": "Mid",
       "role_distribution": {
-        "primary": 64,
-        "secondary": 16,
-        "fill": 9
+        "primary": 68,
+        "secondary": 22,
+        "fill": 5
       },
       "avg_game_duration": 30,
-      "playtime_hours": 137
+      "playtime_hours": 159
     },
     "cl1ck9r#EUWES": {
       "riot_id": "cl1ck9r#EUWES",
@@ -283,193 +283,193 @@
           "win_rate": 56
         }
       ],
-      "last_updated": "2025-09-29 15:28:21",
+      "last_updated": "2025-09-29 15:30:49",
       "lane": "JGL",
       "recent_games": [
         {
+          "result": "W",
+          "duration": "21m",
+          "champion": "Xerath",
+          "kda": "4/4/15",
+          "cs": 98,
+          "game_mode": "Ranked Solo",
+          "when": "1 hours ago",
+          "hours_ago": 1
+        },
+        {
           "result": "L",
-          "duration": "24m",
+          "duration": "25m",
           "champion": "Evelynn",
-          "kda": "3/1/14",
-          "cs": 96,
-          "game_mode": "Normal",
+          "kda": "12/2/13",
+          "cs": 112,
+          "game_mode": "Ranked Solo",
           "when": "2 hours ago",
           "hours_ago": 2
         },
         {
           "result": "W",
-          "duration": "27m",
-          "champion": "Xerath",
-          "kda": "16/4/10",
-          "cs": 160,
+          "duration": "28m",
+          "champion": "Viego",
+          "kda": "3/2/5",
+          "cs": 132,
           "game_mode": "Ranked Solo",
-          "when": "5 hours ago",
-          "hours_ago": 5
+          "when": "7 hours ago",
+          "hours_ago": 7
         },
         {
           "result": "L",
-          "duration": "24m",
-          "champion": "Nocturne",
-          "kda": "4/5/10",
-          "cs": 164,
-          "game_mode": "Ranked Solo",
-          "when": "8 hours ago",
-          "hours_ago": 8
-        },
-        {
-          "result": "W",
-          "duration": "42m",
-          "champion": "Viego",
-          "kda": "6/0/19",
-          "cs": 239,
+          "duration": "31m",
+          "champion": "Evelynn",
+          "kda": "7/3/10",
+          "cs": 202,
           "game_mode": "Ranked Solo",
           "when": "12 hours ago",
           "hours_ago": 12
         },
         {
-          "result": "L",
-          "duration": "31m",
+          "result": "W",
+          "duration": "32m",
           "champion": "Viego",
-          "kda": "2/7/9",
-          "cs": 161,
+          "kda": "7/0/7",
+          "cs": 133,
           "game_mode": "Normal",
-          "when": "19 hours ago",
-          "hours_ago": 19
+          "when": "20 hours ago",
+          "hours_ago": 20
         },
         {
           "result": "W",
-          "duration": "29m",
-          "champion": "Nocturne",
-          "kda": "3/4/7",
-          "cs": 146,
+          "duration": "22m",
+          "champion": "Viego",
+          "kda": "8/2/19",
+          "cs": 90,
           "game_mode": "Ranked Flex",
           "when": "23 hours ago",
           "hours_ago": 23
         },
         {
-          "result": "L",
-          "duration": "22m",
-          "champion": "Viego",
-          "kda": "3/11/5",
-          "cs": 125,
+          "result": "W",
+          "duration": "20m",
+          "champion": "Jarvan IV",
+          "kda": "15/2/16",
+          "cs": 134,
           "game_mode": "Ranked Solo",
           "when": "1 day ago",
           "hours_ago": 35
         },
         {
+          "result": "W",
+          "duration": "27m",
+          "champion": "Viego",
+          "kda": "10/6/3",
+          "cs": 155,
+          "game_mode": "Ranked Solo",
+          "when": "2 days ago",
+          "hours_ago": 50
+        },
+        {
           "result": "L",
-          "duration": "29m",
+          "duration": "34m",
           "champion": "Xerath",
-          "kda": "4/12/12",
-          "cs": 147,
-          "game_mode": "Ranked Flex",
-          "when": "1 day ago",
-          "hours_ago": 47
+          "kda": "6/6/5",
+          "cs": 152,
+          "game_mode": "Ranked Solo",
+          "when": "2 days ago",
+          "hours_ago": 71
         },
         {
           "result": "W",
-          "duration": "19m",
-          "champion": "Nocturne",
-          "kda": "14/5/15",
-          "cs": 119,
+          "duration": "42m",
+          "champion": "Evelynn",
+          "kda": "13/1/15",
+          "cs": 232,
           "game_mode": "Normal",
-          "when": "3 days ago",
-          "hours_ago": 72
-        },
-        {
-          "result": "L",
-          "duration": "32m",
-          "champion": "Xerath",
-          "kda": "3/5/0",
-          "cs": 195,
-          "game_mode": "Ranked Solo",
           "when": "4 days ago",
-          "hours_ago": 96
+          "hours_ago": 98
         }
       ],
-      "avg_gold": 15491,
-      "avg_cs": 125,
-      "vision_score": 53,
-      "avg_damage": 21912,
+      "avg_gold": 14761,
+      "avg_cs": 162,
+      "vision_score": 37,
+      "avg_damage": 20987,
       "kda_ratio": 2.06,
-      "kill_participation": 78,
+      "kill_participation": 80,
       "enhanced_champions": [
         {
           "name": "Viego",
-          "wins": 22,
-          "losses": 16,
+          "wins": 24,
+          "losses": 14,
           "games": 38,
-          "win_rate": 59,
+          "win_rate": 65,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Viego.png",
-          "avg_kda": 2.83,
-          "avg_damage": 14306,
-          "avg_cs": 168
+          "avg_kda": 3.51,
+          "avg_damage": 14206,
+          "avg_cs": 151
         },
         {
           "name": "Xerath",
-          "wins": 20,
-          "losses": 12,
+          "wins": 15,
+          "losses": 17,
           "games": 32,
-          "win_rate": 63,
+          "win_rate": 47,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Xerath.png",
-          "avg_kda": 1.87,
-          "avg_damage": 24891,
-          "avg_cs": 172
+          "avg_kda": 3.82,
+          "avg_damage": 22742,
+          "avg_cs": 184
         },
         {
           "name": "Jarvan IV",
-          "wins": 16,
-          "losses": 13,
+          "wins": 13,
+          "losses": 16,
           "games": 29,
-          "win_rate": 57,
+          "win_rate": 46,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/JarvanIV.png",
-          "avg_kda": 3.24,
-          "avg_damage": 23732,
-          "avg_cs": 196
+          "avg_kda": 3.59,
+          "avg_damage": 16151,
+          "avg_cs": 173
         },
         {
           "name": "Nocturne",
-          "wins": 14,
-          "losses": 11,
+          "wins": 9,
+          "losses": 16,
           "games": 25,
-          "win_rate": 59,
+          "win_rate": 38,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Nocturne.png",
-          "avg_kda": 2.09,
-          "avg_damage": 14063,
-          "avg_cs": 165
+          "avg_kda": 3.23,
+          "avg_damage": 14960,
+          "avg_cs": 145
         },
         {
           "name": "Evelynn",
-          "wins": 7,
-          "losses": 9,
+          "wins": 6,
+          "losses": 10,
           "games": 16,
-          "win_rate": 44,
+          "win_rate": 38,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Evelynn.png",
-          "avg_kda": 2.74,
-          "avg_damage": 20834,
-          "avg_cs": 141
+          "avg_kda": 2.05,
+          "avg_damage": 24418,
+          "avg_cs": 163
         }
       ],
       "recent_performance": [
         "W",
-        "L",
-        "L",
         "W",
         "L",
         "L",
-        "W",
         "L",
         "W",
-        "L"
+        "W",
+        "L",
+        "L",
+        "W"
       ],
       "primary_role": "Jungle",
       "role_distribution": {
-        "primary": 70,
-        "secondary": 23,
-        "fill": 11
+        "primary": 73,
+        "secondary": 27,
+        "fill": 9
       },
-      "avg_game_duration": 34,
-      "playtime_hours": 159
+      "avg_game_duration": 28,
+      "playtime_hours": 78
     },
     "MarsFlag#Qwä": {
       "riot_id": "MarsFlag#Qwä",
@@ -518,179 +518,179 @@
           "win_rate": 41
         }
       ],
-      "last_updated": "2025-09-29 15:28:23",
+      "last_updated": "2025-09-29 15:30:50",
       "lane": "MID",
       "recent_games": [
         {
           "result": "W",
-          "duration": "19m",
+          "duration": "33m",
           "champion": "Hwei",
-          "kda": "4/5/6",
-          "cs": 97,
-          "game_mode": "Normal",
+          "kda": "16/3/6",
+          "cs": 163,
+          "game_mode": "Ranked Flex",
           "when": "1 hours ago",
           "hours_ago": 1
         },
         {
           "result": "W",
-          "duration": "18m",
+          "duration": "41m",
           "champion": "Hwei",
-          "kda": "6/2/13",
-          "cs": 125,
+          "kda": "8/3/6",
+          "cs": 197,
           "game_mode": "Ranked Flex",
           "when": "4 hours ago",
           "hours_ago": 4
         },
         {
           "result": "W",
-          "duration": "35m",
-          "champion": "Hwei",
-          "kda": "8/0/16",
-          "cs": 146,
-          "game_mode": "Ranked Flex",
-          "when": "7 hours ago",
-          "hours_ago": 7
-        },
-        {
-          "result": "L",
-          "duration": "42m",
-          "champion": "Orianna",
-          "kda": "10/4/12",
-          "cs": 186,
-          "game_mode": "Ranked Solo",
-          "when": "13 hours ago",
-          "hours_ago": 13
-        },
-        {
-          "result": "L",
-          "duration": "42m",
+          "duration": "34m",
           "champion": "Ryze",
-          "kda": "7/8/2",
-          "cs": 182,
+          "kda": "14/5/5",
+          "cs": 209,
           "game_mode": "Ranked Flex",
-          "when": "19 hours ago",
-          "hours_ago": 19
-        },
-        {
-          "result": "L",
-          "duration": "19m",
-          "champion": "Ryze",
-          "kda": "7/9/7",
-          "cs": 130,
-          "game_mode": "Ranked Solo",
-          "when": "1 day ago",
-          "hours_ago": 24
+          "when": "6 hours ago",
+          "hours_ago": 6
         },
         {
           "result": "W",
           "duration": "31m",
-          "champion": "Hwei",
-          "kda": "6/2/16",
-          "cs": 181,
-          "game_mode": "Ranked Solo",
-          "when": "1 day ago",
-          "hours_ago": 35
+          "champion": "Ryze",
+          "kda": "5/6/6",
+          "cs": 194,
+          "game_mode": "Ranked Flex",
+          "when": "14 hours ago",
+          "hours_ago": 14
         },
         {
           "result": "W",
-          "duration": "29m",
+          "duration": "24m",
           "champion": "Hwei",
-          "kda": "15/4/17",
-          "cs": 133,
+          "kda": "9/4/13",
+          "cs": 152,
+          "game_mode": "Normal",
+          "when": "18 hours ago",
+          "hours_ago": 18
+        },
+        {
+          "result": "W",
+          "duration": "35m",
+          "champion": "Vex",
+          "kda": "6/0/17",
+          "cs": 170,
           "game_mode": "Ranked Solo",
-          "when": "2 days ago",
-          "hours_ago": 48
+          "when": "23 hours ago",
+          "hours_ago": 23
         },
         {
           "result": "L",
-          "duration": "37m",
-          "champion": "Hwei",
-          "kda": "4/8/9",
-          "cs": 234,
+          "duration": "35m",
+          "champion": "Vex",
+          "kda": "12/7/12",
+          "cs": 182,
           "game_mode": "Ranked Solo",
+          "when": "1 day ago",
+          "hours_ago": 37
+        },
+        {
+          "result": "W",
+          "duration": "27m",
+          "champion": "Hwei",
+          "kda": "10/3/11",
+          "cs": 154,
+          "game_mode": "Ranked Flex",
           "when": "2 days ago",
-          "hours_ago": 71
+          "hours_ago": 49
         },
         {
           "result": "L",
-          "duration": "36m",
-          "champion": "Hwei",
-          "kda": "3/7/10",
-          "cs": 240,
+          "duration": "22m",
+          "champion": "Ryze",
+          "kda": "3/7/15",
+          "cs": 111,
+          "game_mode": "Ranked Solo",
+          "when": "3 days ago",
+          "hours_ago": 74
+        },
+        {
+          "result": "W",
+          "duration": "40m",
+          "champion": "Orianna",
+          "kda": "8/2/9",
+          "cs": 230,
           "game_mode": "Normal",
           "when": "3 days ago",
           "hours_ago": 95
         }
       ],
-      "avg_gold": 14898,
-      "avg_cs": 204,
-      "vision_score": 31,
-      "avg_damage": 26867,
-      "kda_ratio": 2.02,
-      "kill_participation": 67,
+      "avg_gold": 16233,
+      "avg_cs": 218,
+      "vision_score": 30,
+      "avg_damage": 26102,
+      "kda_ratio": 3.02,
+      "kill_participation": 62,
       "enhanced_champions": [
         {
           "name": "Hwei",
-          "wins": 31,
-          "losses": 16,
+          "wins": 30,
+          "losses": 17,
           "games": 47,
-          "win_rate": 66,
+          "win_rate": 65,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Hwei.png",
-          "avg_kda": 2.69,
-          "avg_damage": 22182,
-          "avg_cs": 120
+          "avg_kda": 3.95,
+          "avg_damage": 23782,
+          "avg_cs": 131
         },
         {
           "name": "Syndra",
-          "wins": 12,
-          "losses": 11,
+          "wins": 10,
+          "losses": 13,
           "games": 23,
-          "win_rate": 56,
+          "win_rate": 45,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Syndra.png",
-          "avg_kda": 1.95,
-          "avg_damage": 15697,
-          "avg_cs": 172
+          "avg_kda": 3.74,
+          "avg_damage": 24090,
+          "avg_cs": 134
         },
         {
           "name": "Vex",
-          "wins": 7,
-          "losses": 14,
+          "wins": 10,
+          "losses": 11,
           "games": 21,
-          "win_rate": 37,
+          "win_rate": 48,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vex.png",
-          "avg_kda": 1.68,
-          "avg_damage": 23674,
-          "avg_cs": 124
+          "avg_kda": 3.51,
+          "avg_damage": 12648,
+          "avg_cs": 182
         },
         {
           "name": "Orianna",
-          "wins": 8,
-          "losses": 11,
+          "wins": 9,
+          "losses": 10,
           "games": 19,
-          "win_rate": 45,
+          "win_rate": 51,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Orianna.png",
-          "avg_kda": 1.87,
-          "avg_damage": 22107,
-          "avg_cs": 191
+          "avg_kda": 2.15,
+          "avg_damage": 12280,
+          "avg_cs": 122
         },
         {
           "name": "Ryze",
-          "wins": 6,
-          "losses": 11,
+          "wins": 8,
+          "losses": 9,
           "games": 17,
-          "win_rate": 39,
+          "win_rate": 52,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Ryze.png",
-          "avg_kda": 2.04,
-          "avg_damage": 14877,
-          "avg_cs": 190
+          "avg_kda": 2.2,
+          "avg_damage": 16177,
+          "avg_cs": 127
         }
       ],
       "recent_performance": [
-        "W",
         "L",
-        "W",
-        "W",
-        "W",
+        "L",
+        "L",
+        "L",
+        "L",
         "W",
         "L",
         "W",
@@ -699,12 +699,12 @@
       ],
       "primary_role": "Mid",
       "role_distribution": {
-        "primary": 62,
-        "secondary": 20,
+        "primary": 64,
+        "secondary": 26,
         "fill": 7
       },
-      "avg_game_duration": 27,
-      "playtime_hours": 121
+      "avg_game_duration": 28,
+      "playtime_hours": 198
     },
     "ActionBear#EUW": {
       "riot_id": "ActionBear#EUW",
@@ -753,127 +753,127 @@
           "win_rate": 42
         }
       ],
-      "last_updated": "2025-09-29 15:28:25",
+      "last_updated": "2025-09-29 15:30:52",
       "lane": "ADC",
       "recent_games": [
         {
           "result": "L",
-          "duration": "34m",
+          "duration": "36m",
           "champion": "Jinx",
-          "kda": "7/5/9",
-          "cs": 142,
+          "kda": "12/8/14",
+          "cs": 216,
           "game_mode": "Normal",
-          "when": "1 hours ago",
-          "hours_ago": 1
+          "when": "2 hours ago",
+          "hours_ago": 2
         },
         {
-          "result": "L",
-          "duration": "25m",
+          "result": "W",
+          "duration": "20m",
           "champion": "Ziggs",
-          "kda": "4/2/12",
-          "cs": 168,
-          "game_mode": "Ranked Flex",
+          "kda": "8/1/5",
+          "cs": 89,
+          "game_mode": "Normal",
           "when": "4 hours ago",
           "hours_ago": 4
         },
         {
+          "result": "W",
+          "duration": "20m",
+          "champion": "Vayne",
+          "kda": "10/3/3",
+          "cs": 84,
+          "game_mode": "Ranked Solo",
+          "when": "5 hours ago",
+          "hours_ago": 5
+        },
+        {
           "result": "L",
-          "duration": "18m",
-          "champion": "Jinx",
-          "kda": "9/1/3",
-          "cs": 91,
+          "duration": "39m",
+          "champion": "Jhin",
+          "kda": "10/7/14",
+          "cs": 172,
           "game_mode": "Normal",
-          "when": "6 hours ago",
-          "hours_ago": 6
+          "when": "14 hours ago",
+          "hours_ago": 14
         },
         {
           "result": "W",
-          "duration": "30m",
-          "champion": "Jinx",
-          "kda": "9/2/10",
+          "duration": "27m",
+          "champion": "Jhin",
+          "kda": "14/1/13",
+          "cs": 168,
+          "game_mode": "Normal",
+          "when": "19 hours ago",
+          "hours_ago": 19
+        },
+        {
+          "result": "L",
+          "duration": "24m",
+          "champion": "Ziggs",
+          "kda": "9/1/1",
           "cs": 120,
           "game_mode": "Normal",
-          "when": "11 hours ago",
-          "hours_ago": 11
-        },
-        {
-          "result": "W",
-          "duration": "34m",
-          "champion": "Jinx",
-          "kda": "15/3/12",
-          "cs": 206,
-          "game_mode": "Ranked Solo",
-          "when": "18 hours ago",
-          "hours_ago": 18
-        },
-        {
-          "result": "W",
-          "duration": "29m",
-          "champion": "Vayne",
-          "kda": "12/4/5",
-          "cs": 130,
-          "game_mode": "Ranked Solo",
           "when": "1 day ago",
           "hours_ago": 26
         },
         {
           "result": "W",
-          "duration": "39m",
-          "champion": "Ziggs",
-          "kda": "9/3/5",
-          "cs": 181,
+          "duration": "25m",
+          "champion": "Jinx",
+          "kda": "10/0/17",
+          "cs": 174,
           "game_mode": "Ranked Solo",
           "when": "1 day ago",
-          "hours_ago": 37
+          "hours_ago": 36
         },
         {
           "result": "L",
-          "duration": "32m",
-          "champion": "Jinx",
-          "kda": "4/6/1",
-          "cs": 218,
+          "duration": "41m",
+          "champion": "Jhin",
+          "kda": "11/10/12",
+          "cs": 194,
           "game_mode": "Normal",
-          "when": "2 days ago",
-          "hours_ago": 49
+          "when": "1 day ago",
+          "hours_ago": 47
         },
         {
-          "result": "W",
-          "duration": "37m",
-          "champion": "Ziggs",
-          "kda": "11/1/4",
-          "cs": 231,
-          "game_mode": "Ranked Solo",
+          "result": "L",
+          "duration": "38m",
+          "champion": "Jinx",
+          "kda": "8/7/2",
+          "cs": 209,
+          "game_mode": "Ranked Flex",
           "when": "3 days ago",
           "hours_ago": 72
         },
         {
-          "result": "W",
-          "duration": "20m",
+          "result": "L",
+          "duration": "26m",
           "champion": "Jinx",
-          "kda": "7/1/6",
-          "cs": 104,
-          "game_mode": "Normal",
+          "kda": "7/1/1",
+          "cs": 113,
+          "game_mode": "Ranked Solo",
           "when": "4 days ago",
-          "hours_ago": 96
+          "hours_ago": 98
         }
       ],
-      "avg_gold": 17493,
-      "avg_cs": 251,
-      "vision_score": 27,
-      "avg_damage": 22434,
+      "avg_gold": 14977,
+      "avg_cs": 233,
+      "vision_score": 21,
+      "avg_damage": 20626,
       "kda_ratio": 1.99,
-      "kill_participation": 74,
+      "kill_participation": 71,
       "enhanced_champions": [
         {
           "name": "Jinx",
-          "wins": 42,
-          "losses": 25,
+          "wins": 38,
+          "losses": 29,
           "games": 67,
-          "win_rate": 64,
+          "win_rate": 57,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jinx.png",
-          "avg_kda": 3.99,
-          "avg_damage": 17265,
-          "avg_cs": 142
+          "avg_kda": 2.19,
+          "avg_damage": 15792,
+          "avg_cs": 187
         },
         {
           "name": "Kai'Sa",
@@ -882,64 +882,64 @@
           "games": 33,
           "win_rate": 65,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Kaisa.png",
-          "avg_kda": 2.69,
-          "avg_damage": 22968,
-          "avg_cs": 126
+          "avg_kda": 3.18,
+          "avg_damage": 16713,
+          "avg_cs": 178
         },
         {
           "name": "Ziggs",
           "wins": 11,
           "losses": 15,
           "games": 26,
-          "win_rate": 45,
+          "win_rate": 43,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Ziggs.png",
-          "avg_kda": 3.38,
-          "avg_damage": 18798,
-          "avg_cs": 147
+          "avg_kda": 1.93,
+          "avg_damage": 13124,
+          "avg_cs": 182
         },
         {
           "name": "Jhin",
           "wins": 8,
           "losses": 10,
           "games": 18,
-          "win_rate": 49,
+          "win_rate": 46,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Jhin.png",
-          "avg_kda": 2.49,
-          "avg_damage": 24235,
-          "avg_cs": 126
+          "avg_kda": 3.18,
+          "avg_damage": 18959,
+          "avg_cs": 161
         },
         {
           "name": "Vayne",
           "wins": 6,
           "losses": 6,
           "games": 12,
-          "win_rate": 50,
+          "win_rate": 56,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Vayne.png",
-          "avg_kda": 2.29,
-          "avg_damage": 15947,
-          "avg_cs": 128
+          "avg_kda": 2.73,
+          "avg_damage": 20964,
+          "avg_cs": 121
         }
       ],
       "recent_performance": [
-        "W",
         "L",
         "L",
         "L",
         "L",
         "W",
         "W",
+        "W",
         "L",
-        "L",
-        "L"
+        "W",
+        "W"
       ],
       "primary_role": "ADC",
       "role_distribution": {
-        "primary": 71,
-        "secondary": 27,
-        "fill": 9
+        "primary": 61,
+        "secondary": 17,
+        "fill": 6
       },
-      "avg_game_duration": 35,
-      "playtime_hours": 150
+      "avg_game_duration": 31,
+      "playtime_hours": 133
     },
     "zeLLay#ff15": {
       "riot_id": "zeLLay#ff15",
@@ -988,196 +988,196 @@
           "win_rate": 49
         }
       ],
-      "last_updated": "2025-09-29 15:28:27",
+      "last_updated": "2025-09-29 15:30:54",
       "lane": "SUPP",
       "recent_games": [
         {
           "result": "L",
-          "duration": "35m",
-          "champion": "Braum",
-          "kda": "5/1/8",
-          "cs": 150,
+          "duration": "21m",
+          "champion": "Bard",
+          "kda": "6/4/1",
+          "cs": 143,
           "game_mode": "Ranked Solo",
-          "when": "1 hours ago",
-          "hours_ago": 1
+          "when": "3 hours ago",
+          "hours_ago": 3
         },
         {
-          "result": "L",
-          "duration": "19m",
-          "champion": "Rell",
-          "kda": "1/7/4",
-          "cs": 85,
-          "game_mode": "Ranked Flex",
-          "when": "2 hours ago",
-          "hours_ago": 2
-        },
-        {
-          "result": "L",
-          "duration": "24m",
+          "result": "W",
+          "duration": "25m",
           "champion": "Braum",
-          "kda": "1/7/5",
-          "cs": 121,
-          "game_mode": "Ranked Flex",
+          "kda": "11/2/14",
+          "cs": 135,
+          "game_mode": "Ranked Solo",
           "when": "5 hours ago",
           "hours_ago": 5
         },
         {
           "result": "L",
-          "duration": "30m",
-          "champion": "Bard",
-          "kda": "6/3/10",
-          "cs": 184,
+          "duration": "42m",
+          "champion": "Alistar",
+          "kda": "0/1/2",
+          "cs": 275,
           "game_mode": "Ranked Solo",
-          "when": "14 hours ago",
-          "hours_ago": 14
+          "when": "6 hours ago",
+          "hours_ago": 6
         },
         {
           "result": "L",
-          "duration": "23m",
-          "champion": "Lulu",
-          "kda": "1/3/0",
-          "cs": 105,
-          "game_mode": "Ranked Solo",
-          "when": "19 hours ago",
-          "hours_ago": 19
+          "duration": "37m",
+          "champion": "Bard",
+          "kda": "6/2/13",
+          "cs": 243,
+          "game_mode": "Ranked Flex",
+          "when": "12 hours ago",
+          "hours_ago": 12
         },
         {
           "result": "W",
-          "duration": "34m",
-          "champion": "Bard",
-          "kda": "12/0/10",
-          "cs": 193,
+          "duration": "26m",
+          "champion": "Lulu",
+          "kda": "16/5/11",
+          "cs": 146,
           "game_mode": "Normal",
-          "when": "1 day ago",
-          "hours_ago": 24
+          "when": "17 hours ago",
+          "hours_ago": 17
+        },
+        {
+          "result": "W",
+          "duration": "27m",
+          "champion": "Braum",
+          "kda": "3/4/19",
+          "cs": 172,
+          "game_mode": "Ranked Solo",
+          "when": "23 hours ago",
+          "hours_ago": 23
         },
         {
           "result": "L",
           "duration": "39m",
-          "champion": "Braum",
-          "kda": "0/9/12",
-          "cs": 259,
-          "game_mode": "Ranked Solo",
+          "champion": "Bard",
+          "kda": "1/12/4",
+          "cs": 216,
+          "game_mode": "Ranked Flex",
           "when": "1 day ago",
-          "hours_ago": 37
+          "hours_ago": 36
         },
         {
-          "result": "L",
-          "duration": "24m",
-          "champion": "Lulu",
-          "kda": "1/6/5",
-          "cs": 130,
+          "result": "W",
+          "duration": "39m",
+          "champion": "Bard",
+          "kda": "2/0/11",
+          "cs": 166,
           "game_mode": "Ranked Solo",
           "when": "2 days ago",
           "hours_ago": 48
         },
         {
-          "result": "W",
-          "duration": "40m",
+          "result": "L",
+          "duration": "22m",
           "champion": "Lulu",
-          "kda": "16/1/4",
-          "cs": 233,
+          "kda": "8/9/8",
+          "cs": 112,
           "game_mode": "Ranked Solo",
-          "when": "2 days ago",
-          "hours_ago": 71
+          "when": "3 days ago",
+          "hours_ago": 72
         },
         {
           "result": "W",
-          "duration": "19m",
-          "champion": "Bard",
-          "kda": "12/1/19",
-          "cs": 102,
+          "duration": "38m",
+          "champion": "Alistar",
+          "kda": "16/6/15",
+          "cs": 172,
           "game_mode": "Ranked Solo",
-          "when": "4 days ago",
-          "hours_ago": 98
+          "when": "3 days ago",
+          "hours_ago": 95
         }
       ],
-      "avg_gold": 9092,
-      "avg_cs": 17,
-      "vision_score": 78,
-      "avg_damage": 9380,
+      "avg_gold": 9026,
+      "avg_cs": 23,
+      "vision_score": 76,
+      "avg_damage": 11306,
       "kda_ratio": 1.0,
-      "kill_participation": 75,
+      "kill_participation": 77,
       "enhanced_champions": [
         {
           "name": "Braum",
-          "wins": 44,
-          "losses": 34,
+          "wins": 49,
+          "losses": 29,
           "games": 78,
-          "win_rate": 57,
+          "win_rate": 63,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Braum.png",
-          "avg_kda": 2.66,
-          "avg_damage": 16225,
-          "avg_cs": 191
+          "avg_kda": 2.09,
+          "avg_damage": 14237,
+          "avg_cs": 162
         },
         {
           "name": "Bard",
-          "wins": 38,
-          "losses": 37,
+          "wins": 42,
+          "losses": 33,
           "games": 75,
-          "win_rate": 51,
+          "win_rate": 57,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Bard.png",
-          "avg_kda": 3.36,
-          "avg_damage": 18910,
-          "avg_cs": 169
+          "avg_kda": 3.91,
+          "avg_damage": 24173,
+          "avg_cs": 189
         },
         {
           "name": "Lulu",
-          "wins": 33,
-          "losses": 34,
+          "wins": 34,
+          "losses": 33,
           "games": 67,
-          "win_rate": 50,
+          "win_rate": 51,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Lulu.png",
-          "avg_kda": 2.61,
-          "avg_damage": 14213,
-          "avg_cs": 143
+          "avg_kda": 1.96,
+          "avg_damage": 12944,
+          "avg_cs": 167
         },
         {
           "name": "Alistar",
-          "wins": 27,
-          "losses": 38,
+          "wins": 31,
+          "losses": 34,
           "games": 65,
-          "win_rate": 42,
+          "win_rate": 48,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Alistar.png",
-          "avg_kda": 2.1,
-          "avg_damage": 16491,
-          "avg_cs": 137
+          "avg_kda": 2.71,
+          "avg_damage": 23617,
+          "avg_cs": 186
         },
         {
           "name": "Rell",
-          "wins": 28,
-          "losses": 33,
+          "wins": 34,
+          "losses": 27,
           "games": 61,
-          "win_rate": 46,
+          "win_rate": 57,
           "icon_url": "https://ddragon.leagueoflegends.com/cdn/14.21.1/img/champion/Rell.png",
-          "avg_kda": 1.57,
-          "avg_damage": 12932,
-          "avg_cs": 160
+          "avg_kda": 1.9,
+          "avg_damage": 15716,
+          "avg_cs": 190
         }
       ],
       "recent_performance": [
         "W",
-        "L",
-        "W",
-        "W",
-        "W",
         "W",
         "L",
         "L",
+        "W",
+        "W",
+        "L",
+        "W",
         "W",
         "W"
       ],
       "primary_role": "Support",
       "role_distribution": {
-        "primary": 74,
-        "secondary": 30,
-        "fill": 6
+        "primary": 69,
+        "secondary": 27,
+        "fill": 10
       },
-      "avg_game_duration": 31,
-      "playtime_hours": 94
+      "avg_game_duration": 34,
+      "playtime_hours": 196
     }
   },
-  "last_updated": "2025-09-29 15:28:17",
+  "last_updated": "2025-09-29 15:30:46",
   "total_players": 5,
   "success_count": 5
 }

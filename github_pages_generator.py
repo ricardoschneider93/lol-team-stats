@@ -2167,7 +2167,7 @@ class GitHubPagesGenerator:
                 <p class="last-updated">Letzte Aktualisierung: {last_updated}</p>
                 <button class="update-btn" onclick="updateData()">
                     <span class="update-icon">🔄</span>
-                    <span class="update-text">Aktualisieren</span>
+                    <span class="update-text">Neu laden</span>
                 </button>
             </div>
         </header>
@@ -2348,87 +2348,11 @@ class GitHubPagesGenerator:
             }});
         }});
         
-        // Update Function
+        // Simple Reload Function
         function updateData() {{
-            const btn = document.querySelector('.update-btn');
-            const icon = btn.querySelector('.update-icon');
-            const text = btn.querySelector('.update-text');
-            
-            // Loading state
-            btn.classList.add('loading');
-            text.textContent = 'Aktualisiere...';
-            
-            // Show notification
-            showNotification('🔄 Daten werden aktualisiert...', 'info');
-            
-            // Simulate update process (since it's static HTML)
-            setTimeout(() => {{
-                // Reload page to get new data
-                window.location.reload();
-            }}, 2000);
+            // Just reload the page - new data comes from running main.py manually
+            window.location.reload();
         }}
-        
-        // Notification System
-        function showNotification(message, type = 'info') {{
-            // Remove existing notifications
-            const existing = document.querySelector('.notification');
-            if (existing) existing.remove();
-            
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${{type}}`;
-            notification.innerHTML = `
-                <span>${{message}}</span>
-                <button onclick="this.parentElement.remove()">×</button>
-            `;
-            
-            // Add styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${{type === 'info' ? 'rgba(33, 150, 243, 0.9)' : 'rgba(76, 175, 80, 0.9)'}};
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-                z-index: 100000;
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                font-weight: 500;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255,255,255,0.2);
-            `;
-            
-            notification.querySelector('button').style.cssText = `
-                background: none;
-                border: none;
-                color: white;
-                font-size: 18px;
-                cursor: pointer;
-                padding: 0;
-                width: 20px;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {{
-                if (notification.parentElement) {{
-                    notification.remove();
-                }}
-            }}, 5000);
-        }}
-        
-        // Auto-refresh every 30 minutes (1800000 ms)
-        setInterval(() => {{
-            showNotification('🔄 Automatische Aktualisierung...', 'info');
-            setTimeout(() => window.location.reload(), 2000);
-        }}, 1800000);
         
     </script>
 </body>
