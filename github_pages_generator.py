@@ -458,6 +458,14 @@ class GitHubPagesGenerator:
                     display_value = f"{value}%"
                 elif stat_key == 'kda_ratio':
                     display_value = f"{value:.2f}"
+                elif stat_key == 'avg_gold':
+                    display_value = f"{value:,}g"
+                elif stat_key == 'avg_cs':
+                    display_value = f"{value} CS"
+                elif stat_key == 'avg_damage':
+                    display_value = f"{value:,}"
+                elif stat_key in ['kill_participation', 'vision_score']:
+                    display_value = f"{value}"
                 else:
                     display_value = str(value)
             
@@ -548,7 +556,12 @@ class GitHubPagesGenerator:
                                 <strong>Team Win Rate</strong><br>
                                 Durchschnitt aller Spieler Win Rates<br>
                                 Berechnung: Σ(Wins) / Σ(Games) × 100<br>
-                                <em>Basiert auf {total_games} Gesamtspielen</em>
+                                <br>
+                                📊 <strong>Games Breakdown:</strong><br>
+                                • Total Games: {total_games}<br>
+                                • Total Wins: {total_wins}<br>
+                                • Total Losses: {total_games - total_wins}<br>
+                                <em>Höhere Win Rate = Besseres Team</em>
                             </div>
                         </div>
                     </div>
@@ -567,11 +580,19 @@ class GitHubPagesGenerator:
                         <div class="tooltip-trigger">?
                             <div class="tooltip">
                                 <strong>Team Performance Score</strong><br>
-                                Kombinierte Bewertung aus:<br>
-                                • Win Rate (40%)<br>
-                                • KDA Ratio (35%)<br>
-                                • Kill Participation (25%)<br>
-                                <em>0-100 Punkte Skala</em>
+                                <em>Wie gut performt das Team insgesamt?</em><br>
+                                <br>
+                                🔥 <strong>Berechnung:</strong><br>
+                                • Win Rate × 0.4 (40%)<br>
+                                • KDA Ratio × 15 (35%)<br>
+                                • Kill Participation × 0.45 (25%)<br>
+                                <br>
+                                📈 <strong>Score Bedeutung:</strong><br>
+                                • 90-100: Elite Team<br>
+                                • 80-89: Sehr stark<br>
+                                • 70-79: Gut<br>
+                                • 60-69: Durchschnitt<br>
+                                • <60: Verbesserung nötig
                             </div>
                         </div>
                     </div>
@@ -631,7 +652,24 @@ class GitHubPagesGenerator:
             <!-- Detailed Stats Grid -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-header">💰 Economic Performance</div>
+                    <div class="stat-header">
+                        💰 Economic Performance
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Economic Performance</strong><br>
+                                Zeigt die Farming- und Gold-Effizienz<br>
+                                <br>
+                                💰 <strong>Gold per Game:</strong><br>
+                                Durchschnittliches Gold pro Match<br>
+                                Beinhaltet: Farming, Kills, Assists, Objectives<br>
+                                <br>
+                                ⚔️ <strong>CS per Game:</strong><br>
+                                Creep Score (Minions + Jungle)<br>
+                                Zeigt Farming-Effizienz und Macro-Spiel<br>
+                                <em>Mehr Gold = Stärkere Items = Mehr Damage</em>
+                            </div>
+                        </div>
+                    </div>
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Gold per Game</span>
@@ -641,11 +679,36 @@ class GitHubPagesGenerator:
                             <span>Avg CS per Game</span>
                             <span class="stat-value">{avg_cs}</span>
                         </div>
+                        <div class="stat-leaderboard">
+                            <div class="ranking-title">🏆 Gold Leaderboard:</div>
+                            {self._generate_ranking(players, 'avg_gold')}
+                        </div>
+                        <div class="stat-leaderboard">
+                            <div class="ranking-title">🏆 CS Leaderboard:</div>
+                            {self._generate_ranking(players, 'avg_cs')}
+                        </div>
                     </div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-header">🎯 Combat Stats</div>
+                    <div class="stat-header">
+                        🎯 Combat Stats
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Combat Performance</strong><br>
+                                Zeigt Teamfight- und Damage-Effizienz<br>
+                                <br>
+                                💥 <strong>Damage per Game:</strong><br>
+                                Durchschnittlicher Schaden an Champions<br>
+                                Beinhaltet: Skill-Damage, Auto-Attacks, DOTs<br>
+                                <br>
+                                🤝 <strong>Kill Participation:</strong><br>
+                                % der Team-Kills mit Beteiligung<br>
+                                Berechnung: (Kills + Assists) / Team Kills<br>
+                                <em>Höhere Werte = Mehr Teamfight Impact</em>
+                            </div>
+                        </div>
+                    </div>
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Damage per Game</span>
@@ -655,11 +718,39 @@ class GitHubPagesGenerator:
                             <span>Kill Participation</span>
                             <span class="stat-value">{avg_kill_participation}%</span>
                         </div>
+                        <div class="stat-leaderboard">
+                            <div class="ranking-title">🏆 Damage Leaderboard:</div>
+                            {self._generate_ranking(players, 'avg_damage')}
+                        </div>
+                        <div class="stat-leaderboard">
+                            <div class="ranking-title">🏆 Kill Participation:</div>
+                            {self._generate_ranking(players, 'kill_participation')}
+                        </div>
                     </div>
                 </div>
                 
                 <div class="stat-card">
-                    <div class="stat-header">👁️ Vision Control</div>
+                    <div class="stat-header">
+                        👁️ Vision Control
+                        <div class="tooltip-trigger">?
+                            <div class="tooltip">
+                                <strong>Vision Control</strong><br>
+                                Zeigt Map-Awareness und Team-Support<br>
+                                <br>
+                                👁️ <strong>Vision Score:</strong><br>
+                                Berechnung basierend auf:<br>
+                                • Wards platziert (1 Punkt/Min)<br>
+                                • Enemy Wards zerstört (1 Punkt)<br>
+                                • Ward Duration Bonus<br>
+                                <br>
+                                📊 <strong>Benchmark:</strong><br>
+                                • Support: 60-100+<br>
+                                • Jungle: 40-70<br>
+                                • Andere Rollen: 20-50<br>
+                                <em>Vision = Map Control = Mehr Wins</em>
+                            </div>
+                        </div>
+                    </div>
                     <div class="stat-body">
                         <div class="stat-row">
                             <span>Avg Vision Score</span>
@@ -668,6 +759,10 @@ class GitHubPagesGenerator:
                         <div class="stat-row">
                             <span>Team Size</span>
                             <span class="stat-value">{len(players)} Players</span>
+                        </div>
+                        <div class="stat-leaderboard">
+                            <div class="ranking-title">🏆 Vision Leaderboard:</div>
+                            {self._generate_ranking(players, 'vision_score')}
                         </div>
                     </div>
                 </div>
@@ -1294,6 +1389,59 @@ class GitHubPagesGenerator:
             min-width: 220px;
         }}
         
+        /* ===== STAT CARD ENHANCEMENTS ===== */
+        .stat-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px 12px 20px;
+            background: linear-gradient(135deg, rgba(200, 155, 60, 0.1), rgba(0, 245, 255, 0.05));
+            border-bottom: 1px solid rgba(200, 155, 60, 0.2);
+            font-weight: 600;
+            color: var(--primary-color);
+        }}
+        
+        .stat-leaderboard {{
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(200, 155, 60, 0.15);
+        }}
+        
+        .stat-leaderboard .ranking-title {{
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }}
+        
+        .stat-leaderboard .ranking-item {{
+            padding: 4px 8px;
+            margin: 2px 0;
+            font-size: 0.85rem;
+        }}
+        
+        .stat-leaderboard .rank-medal {{
+            font-size: 0.9rem;
+            margin-right: 6px;
+            min-width: 18px;
+        }}
+        
+        .stat-leaderboard .rank-player {{
+            font-size: 0.85rem;
+        }}
+        
+        .stat-leaderboard .rank-value {{
+            font-size: 0.8rem;
+        }}
+        
+        .stat-card {{
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }}
+        
+        .stat-card:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2),
+                        0 0 0 1px rgba(200, 155, 60, 0.2);
+        }}
+        
         .champion-icon {{
             width: 40px;
             height: 40px;
@@ -1459,9 +1607,9 @@ class GitHubPagesGenerator:
         }}
         
         .tooltip {{
-            position: absolute;
-            top: -10px;
-            right: 25px;
+            position: fixed;
+            top: auto;
+            left: auto;
             background: linear-gradient(145deg, rgba(40, 52, 78, 0.98), rgba(30, 40, 60, 0.98));
             backdrop-filter: blur(20px);
             border: 1px solid rgba(200, 155, 60, 0.3);
@@ -1471,14 +1619,15 @@ class GitHubPagesGenerator:
             max-width: 350px;
             font-size: 0.85rem;
             line-height: 1.5;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
                         0 0 0 1px rgba(200, 155, 60, 0.1),
                         inset 0 1px 0 rgba(255, 255, 255, 0.1);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px) scale(0.8);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
+            z-index: 99999;
+            pointer-events: none;
         }}
         
         .tooltip-trigger:hover .tooltip {{
@@ -1854,6 +2003,46 @@ class GitHubPagesGenerator:
                     font-weight: bold;
                 `;
                 parent.insertBefore(fallback, this);
+            }});
+        }});
+        
+        // MEGA TOOLTIP POSITIONING SYSTEM
+        document.querySelectorAll('.tooltip-trigger').forEach(trigger => {{
+            trigger.addEventListener('mouseenter', function(e) {{
+                const tooltip = this.querySelector('.tooltip');
+                if (!tooltip) return;
+                
+                // Reset position
+                tooltip.style.position = 'fixed';
+                tooltip.style.top = 'auto';
+                tooltip.style.left = 'auto';
+                tooltip.style.right = 'auto';
+                tooltip.style.bottom = 'auto';
+                
+                const triggerRect = this.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                
+                let left = triggerRect.right + 10;
+                let top = triggerRect.top;
+                
+                // Horizontal overflow check
+                if (left + tooltipRect.width > viewportWidth - 20) {{
+                    left = triggerRect.left - tooltipRect.width - 10;
+                }}
+                
+                // Vertical overflow check
+                if (top + tooltipRect.height > viewportHeight - 20) {{
+                    top = viewportHeight - tooltipRect.height - 20;
+                }}
+                
+                if (top < 20) {{
+                    top = 20;
+                }}
+                
+                tooltip.style.left = left + 'px';
+                tooltip.style.top = top + 'px';
             }});
         }});
     </script>
